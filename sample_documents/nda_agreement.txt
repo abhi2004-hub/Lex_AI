@@ -1,0 +1,84 @@
+NON-DISCLOSURE AGREEMENT
+
+This Non-Disclosure Agreement ("Agreement") is entered into on March 10, 2024, by and between:
+
+INNOVATECH LABS ("Disclosing Party")
+AND
+MARKETING SOLUTIONS INC. ("Receiving Party")
+
+1. DEFINITION OF CONFIDENTIAL INFORMATION
+1.1. "Confidential Information" includes all technical information, business plans, financial data, and proprietary knowledge disclosed by Disclosing Party.
+1.2. Confidential information includes, but is not limited to: source code, algorithms, customer lists, pricing strategies, and research data.
+1.3. Information marked as "confidential" or "proprietary" shall be presumed confidential.
+1.4. Oral disclosures shall be considered confidential if summarized in writing within 30 days.
+
+2. OBLIGATIONS OF RECEIVING PARTY
+2.1. Receiving Party shall maintain the confidentiality of all Confidential Information.
+2.2. Receiving Party shall use Confidential Information solely for evaluating potential business relationships.
+2.3. Receiving Party shall not disclose Confidential Information to any third party without prior written consent.
+2.4. Receiving Party shall implement reasonable security measures to protect Confidential Information.
+
+3. EXCLUSIONS
+3.1. This Agreement does not cover information that:
+    a) Is publicly known at the time of disclosure;
+    b) Becomes publicly known through no fault of Receiving Party;
+    c) Is lawfully received from a third party without restriction;
+    d) Is independently developed by Receiving Party without use of Confidential Information.
+
+4. TERM AND TERMINATION
+4.1. This Agreement shall remain in effect for a period of 3 years from the date of execution.
+4.2. Either party may terminate this Agreement with 30 days written notice.
+4.3. The obligation to protect Confidential Information shall survive termination for 5 years.
+
+5. RETURN OF INFORMATION
+5.1. Upon termination, Receiving Party shall promptly return all Confidential Information.
+5.2. Receiving Party may retain one copy for legal archival purposes, subject to confidentiality obligations.
+5.3. Receiving Party shall certify in writing that all materials have been returned or destroyed.
+
+6. REMEDIES
+6.1. Receiving Party acknowledges that breach of this Agreement may cause irreparable harm.
+6.2. Disclosing Party shall be entitled to seek injunctive relief for breaches.
+6.3. In the event of litigation, the prevailing party shall be entitled to reasonable attorney fees and costs.
+
+7. DISCLOSURE TO EMPLOYEES
+7.1. Receiving Party may disclose Confidential Information to employees with a need-to-know.
+7.2. Such employees must be bound by confidentiality obligations at least as restrictive as this Agreement.
+7.3. Receiving Party shall be liable for any breaches by its employees.
+
+8. NO LICENSE GRANTED
+8.1. Nothing in this Agreement grants Receiving Party any license to patents, copyrights, or other intellectual property.
+8.2. All intellectual property rights remain with Disclosing Party.
+8.3. No rights are granted except as explicitly stated in this Agreement.
+
+9. GOVERNING LAW AND JURISDICTION
+9.1. This Agreement shall be governed by the laws of California.
+9.2. Any disputes shall be resolved in the state or federal courts in San Francisco, California.
+9.3. Both parties consent to personal jurisdiction in California courts.
+
+10. MISCELLANEOUS
+10.1. This Agreement constitutes the entire understanding between the parties.
+10.2. No waiver of any provision shall be effective unless in writing.
+10.3. If any provision is found invalid, the remainder shall remain in full force.
+10.4. This Agreement may not be assigned without prior written consent.
+
+11. NOTICES
+11.1. All notices shall be in writing and delivered as follows:
+    
+Disclosing Party:                    Receiving Party:
+INNOVATECH LABS                       MARKETING SOLUTIONS INC.
+789 Innovation Drive                  321 Marketing Boulevard
+Palo Alto, CA 94301                   Los Angeles, CA 90001
+Attention: Legal Department           Attention: General Counsel
+Email: legal@innovatech.com           Email: legal@marketingsol.com
+
+12. EXECUTION
+12.1. This Agreement may be executed in counterparts.
+12.2. Electronic signatures shall be deemed valid and binding.
+12.3. This Agreement is effective as of the date first written above.
+
+IN WITNESS WHEREOF, the parties have executed this Agreement as of March 10, 2024.
+
+_________________________          _________________________
+INNOVATECH LABS                       MARKETING SOLUTIONS INC.
+By: Dr. Emily Rodriguez, CEO         By: James Wilson, President
+Date: March 10, 2024                  Date: March 10, 2024

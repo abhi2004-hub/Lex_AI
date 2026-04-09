@@ -1,0 +1,1392 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LexAI | The Digital Architect for Legal Intelligence</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-surface": "#191c1e",
+              "primary-container": "#131b2e",
+              "background": "#f7f9fb",
+              "secondary-container": "#d0e1fb",
+              "surface-container-high": "#e6e8ea",
+              "surface": "#f7f9fb",
+              "primary": "#000000",
+              "inverse-surface": "#2d3133",
+              "surface-container": "#eceef0",
+              "on-surface-variant": "#45464d",
+              "outline": "#76777d",
+              "primary-fixed": "#dae2fd",
+              "surface-container-lowest": "#ffffff",
+              "surface-bright": "#f7f9fb",
+              "on-secondary-fixed-variant": "#38485d",
+              "on-secondary-fixed": "#0b1c30",
+              "error": "#ba1a1a",
+              "secondary": "#505f76",
+              "on-error": "#ffffff",
+              "on-primary-container": "#7c839b",
+              "on-error-container": "#93000a",
+              "on-secondary": "#ffffff",
+              "on-tertiary-fixed": "#001d31",
+              "surface-container-highest": "#e0e3e5",
+              "tertiary-container": "#001d31",
+              "tertiary": "#000000",
+              "secondary-fixed": "#d3e4fe",
+              "on-tertiary": "#ffffff",
+              "inverse-primary": "#bec6e0",
+              "outline-variant": "#c6c6cd",
+              "surface-dim": "#d8dadc",
+              "error-container": "#ffdad6",
+              "tertiary-fixed-dim": "#93ccff",
+              "tertiary-fixed": "#cce5ff",
+              "surface-tint": "#565e74",
+              "inverse-on-surface": "#eff1f3",
+              "primary-fixed-dim": "#bec6e0",
+              "on-background": "#191c1e",
+              "surface-container-low": "#f2f4f6",
+              "on-primary-fixed-variant": "#3f465c",
+              "on-primary-fixed": "#131b2e",
+              "on-primary": "#ffffff",
+              "on-tertiary-fixed-variant": "#004b73",
+              "on-secondary-container": "#54647a",
+              "on-tertiary-container": "#188ace",
+              "secondary-fixed-dim": "#b7c8e1",
+              "surface-variant": "#e0e3e5"
+            },
+            fontFamily: {
+              "headline": ["Inter", "sans-serif"],
+              "body": ["Inter", "sans-serif"],
+              "label": ["Inter", "sans-serif"],
+              "mono": ["JetBrains Mono", "monospace"]
+            },
+            borderRadius: {
+              "DEFAULT": "0.25rem",
+              "lg": "0.5rem",
+              "xl": "1.5rem",
+              "full": "9999px"
+            },
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        vertical-align: middle;
+      }
+      .glass-effect {
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+      }
+      .tonal-transition {
+        transition: background-color 0.3s ease;
+      }
+      .text-gradient {
+        background: linear-gradient(135deg, #000000, #45464d);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .hero-stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased">
+<!-- TopAppBar Navigation -->
+<header class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-xl shadow-[0_24px_48px_-12px_rgba(15,23,42,0.08)]">
+<nav class="flex justify-between items-center w-full px-8 py-4 max-w-7xl mx-auto">
+<div class="text-xl font-bold tracking-tighter text-slate-900">LexAI</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-slate-900 font-semibold border-b-2 border-slate-900 pb-1 font-sans tracking-tight text-sm" href="#">Solutions</a>
+<a class="text-slate-500 hover:text-slate-900 transition-colors font-sans tracking-tight text-sm font-medium" href="#">Intelligence</a>
+<a class="text-slate-500 hover:text-slate-900 transition-colors font-sans tracking-tight text-sm font-medium" href="#">Security</a>
+<a class="text-slate-500 hover:text-slate-900 transition-colors font-sans tracking-tight text-sm font-medium" href="#">Enterprise</a>
+<!-- Dashboard integration link -->
+<a class="text-slate-500 hover:text-slate-900 transition-colors font-sans tracking-tight text-sm font-medium" href="dashboard.html">Dashboard</a>
+</div>
+<div class="flex items-center space-x-4">
+<button class="text-slate-900 font-sans tracking-tight text-sm font-medium hover:opacity-80 transition-all duration-300">Sign In</button>
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-lg font-sans tracking-tight text-sm font-medium scale-95 active:scale-90 transition-transform">Get Started</button>
+</div>
+</nav>
+</header>
+<main class="pt-32">
+<!-- Hero Section -->
+<section class="max-w-7xl mx-auto px-8 mb-32 grid lg:grid-cols-2 gap-16 items-center">
+<div class="space-y-8">
+<div class="inline-flex items-center px-3 py-1 rounded-full bg-secondary-container text-on-secondary-fixed-variant text-[10px] font-bold tracking-widest uppercase">
+                    v4.0 Enterprise Intelligence
+                </div>
+<h1 class="text-6xl md:text-7xl font-bold tracking-tighter text-gradient leading-[1.1]">
+                    The Digital Architect for Legal Data.
+                </h1>
+<p class="text-xl text-on-surface-variant max-w-xl leading-relaxed">
+                    Moving beyond basic automation. LexAI provides high-fidelity document analysis with architectural precision, designed for the modern legal enterprise.
+                </p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-primary text-on-primary px-8 py-4 rounded-xl font-semibold hover:opacity-90 transition-all flex items-center gap-2">
+                        Deploy Architecture <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="bg-surface-container-high px-8 py-4 rounded-xl font-semibold hover:bg-surface-container-highest transition-all">
+                        View Dossier
+                    </button>
+</div>
+<div class="hero-stats-grid gap-8 pt-8 border-t border-outline-variant/20">
+<div>
+<div class="text-2xl font-bold font-mono">0.02s</div>
+<div class="text-xs font-semibold uppercase tracking-widest text-on-surface-variant">Latency</div>
+</div>
+<div>
+<div class="text-2xl font-bold font-mono">99.9%</div>
+<div class="text-xs font-semibold uppercase tracking-widest text-on-surface-variant">Precision</div>
+</div>
+<div>
+<div class="text-2xl font-bold font-mono">ISO27001</div>
+<div class="text-xs font-semibold uppercase tracking-widest text-on-surface-variant">Security</div>
+</div>
+</div>
+</div>
+<!-- Hero Visual: Glassmorphic Card -->
+<div class="relative">
+<div class="absolute -top-12 -left-12 w-64 h-64 bg-secondary-container/30 rounded-full blur-3xl"></div>
+<div class="absolute -bottom-12 -right-12 w-64 h-64 bg-tertiary-fixed/30 rounded-full blur-3xl"></div>
+<div class="relative bg-surface-container-lowest/70 glass-effect p-8 rounded-xl shadow-[0_24px_48px_-12px_rgba(25,28,30,0.08)] border border-white/20">
+  <div class="flex items-center justify-between mb-6">
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-white">
+        <span class="material-symbols-outlined">description</span>
+      </div>
+      <div>
+        <div class="text-sm font-bold">Employment_Contract.pdf</div>
+        <div class="text-[10px] text-on-surface-variant font-mono uppercase flex items-center gap-1">
+          <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> AI Analysis Complete
+        </div>
+      </div>
+    </div>
+    <span class="material-symbols-outlined text-on-surface-variant">more_vert</span>
+  </div>
+  <!-- Animated progress bar -->
+  <div class="h-2 w-full bg-surface-container rounded-full overflow-hidden mb-6">
+    <div class="h-full bg-gradient-to-r from-emerald-400 to-primary" style="width:100%;transition:width 1.2s ease"></div>
+  </div>
+  <!-- Risk summary cards -->
+  <div class="grid grid-cols-3 gap-3 mb-6">
+    <div class="rounded-lg bg-emerald-50 border border-emerald-200 p-3 text-center">
+      <div class="text-xl font-bold text-emerald-600">12</div>
+      <div class="text-[9px] font-semibold uppercase tracking-wider text-emerald-700">Low Risk</div>
+    </div>
+    <div class="rounded-lg bg-amber-50 border border-amber-200 p-3 text-center">
+      <div class="text-xl font-bold text-amber-600">5</div>
+      <div class="text-[9px] font-semibold uppercase tracking-wider text-amber-700">Medium Risk</div>
+    </div>
+    <div class="rounded-lg bg-red-50 border border-red-200 p-3 text-center">
+      <div class="text-xl font-bold text-red-600">3</div>
+      <div class="text-[9px] font-semibold uppercase tracking-wider text-red-700">High Risk</div>
+    </div>
+  </div>
+  <!-- Sample AI insight card -->
+  <div class="p-4 rounded-lg bg-surface-container-lowest border border-outline-variant/10 shadow-sm">
+    <div class="flex items-center gap-2 mb-2">
+      <span class="material-symbols-outlined text-amber-500 text-sm" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
+      <span class="text-[10px] font-bold uppercase tracking-wider text-amber-600">Insight</span>
+    </div>
+    <p class="text-xs text-on-surface-variant leading-relaxed">Non-compete clause has limited enforceability under Section 27 of the Indian Contract Act. Review termination notice period — 90 days is above industry standard.</p>
+  </div>
+</div>
+</div>
+</div>
+</section>
+<!-- Upload Section -->
+<section class="max-w-5xl mx-auto px-8 mb-32">
+<div id="upload" class="bg-surface-container-low rounded-xl p-12 text-center relative overflow-hidden">
+<div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(circle at 2px 2px, #000 1px, transparent 0); background-size: 24px 24px;"></div>
+<div class="relative z-10">
+<div class="w-20 h-20 bg-surface-container-lowest rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-sm">
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="cloud_upload">cloud_upload</span>
+</div>
+<h3 class="text-2xl font-bold mb-2">Secure Document Ingestion</h3>
+<p class="text-on-surface-variant mb-8 max-w-md mx-auto">Upload your legal dossiers for structural decomposition and risk mapping. Supports PDF, DOCX, and specialized legal formats.</p>
+<div id="uploadZone" class="inline-flex items-center gap-4 bg-surface-container-lowest p-2 rounded-xl shadow-sm border border-outline-variant/5">
+    <button class="btn btn-primary bg-primary text-on-primary px-6 py-3 rounded-lg font-semibold text-sm">Select Files</button>
+    <span class="text-xs text-on-surface-variant px-4 font-mono">OR DROP FILES HERE</span>
+    <input type="file" id="fileInput" accept=".pdf,.docx,.txt" hidden>
+</div>
+</div>
+</div>
+</section>
+<!-- Features Grid -->
+<section class="max-w-7xl mx-auto px-8 mb-32">
+<div class="mb-16">
+<h2 class="text-3xl font-bold mb-4">Architectural Components</h2>
+<div class="h-1 w-20 bg-primary"></div>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant/10 hover:shadow-xl transition-shadow duration-500">
+<span class="material-symbols-outlined text-primary mb-6 text-3xl" data-icon="account_tree">account_tree</span>
+<h4 class="text-lg font-bold mb-3">Semantic Mapping</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">LexAI maps the underlying intent of complex clauses, identifying hidden obligations across multi-document suites.</p>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant/10 hover:shadow-xl transition-shadow duration-500">
+<span class="material-symbols-outlined text-primary mb-6 text-3xl" data-icon="verified_user">verified_user</span>
+<h4 class="text-lg font-bold mb-3">Compliance Guardrails</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">Automatic benchmarking against GDPR, CCPA, and bespoke internal corporate policy frameworks.</p>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant/10 hover:shadow-xl transition-shadow duration-500">
+<span class="material-symbols-outlined text-primary mb-6 text-3xl" data-icon="analytics">analytics</span>
+<h4 class="text-lg font-bold mb-3">Quantum Analytics</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">Predictive litigation modeling based on clause phrasing and historical jurisdictional data.</p>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant/10 hover:shadow-xl transition-shadow duration-500">
+<span class="material-symbols-outlined text-primary mb-6 text-3xl" data-icon="hub">hub</span>
+<h4 class="text-lg font-bold mb-3">Multi-Cloud Mesh</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">Global data residency compliance with sovereign cloud deployments for sensitive legal infrastructure.</p>
+</div>
+<!-- Card 5 -->
+<div class="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant/10 hover:shadow-xl transition-shadow duration-500">
+<span class="material-symbols-outlined text-primary mb-6 text-3xl" data-icon="history_edu">history_edu</span>
+<h4 class="text-lg font-bold mb-3">Legacy Ingestion</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">OCR-optimized processing for physical archives, converting historical ink into structured intelligence.</p>
+</div>
+<!-- Card 6 -->
+<div class="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant/10 hover:shadow-xl transition-shadow duration-500">
+<span class="material-symbols-outlined text-primary mb-6 text-3xl" data-icon="api">api</span>
+<h4 class="text-lg font-bold mb-3">Enterprise Bridge</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">Native integrations with Salesforce, iManage, and NetDocuments via high-performance GraphQL APIs.</p>
+</div>
+</div>
+</section>
+<!-- Dashboard Preview Section -->
+<section id="dashboard" class="bg-surface-container-low py-32" style="display:block;">
+<div class="max-w-7xl mx-auto px-8">
+    <div class="document-summary" style="display:none"></div>
+<div class="text-center mb-16">
+<h2 class="text-4xl font-bold tracking-tight mb-4">Command Center</h2>
+<p class="text-on-surface-variant">The intelligence layer where data becomes strategic foresight.</p>
+</div>
+<div class="grid lg:grid-cols-12 gap-8">
+<!-- Top Row: Verdict (Spans 12 columns) -->
+<div class="lg:col-span-12" id="verdictContainer" style="display:none">
+    <!-- Content injected via script.js -->
+</div>
+<!-- Left Rail: Risk Distribution -->
+<div class="lg:col-span-4 space-y-8">
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm">
+<h5 class="label-md mb-6 text-on-surface-variant tracking-widest uppercase font-semibold text-xs">Risk Distribution</h5>
+<div class="flex justify-center items-center py-8 relative">
+    <!-- Chart.js canvas for dynamic risk chart -->
+    <div style="width:100%;max-width:320px;height:260px;">
+        <canvas id="riskChart" style="width:100%;height:260px"></canvas>
+    </div>
+</div>
+<div class="space-y-3 mt-4" id="riskLegend">
+  <div class="flex justify-between items-center">
+    <span class="text-xs font-medium flex items-center gap-2"><span class="w-2 h-2 rounded-full" style="background:rgba(16,185,129,1)"></span> Low Risk</span>
+    <span class="text-xs font-mono font-bold" id="legendLow">—</span>
+  </div>
+  <div class="flex justify-between items-center">
+    <span class="text-xs font-medium flex items-center gap-2"><span class="w-2 h-2 rounded-full" style="background:rgba(245,158,11,1)"></span> Medium Risk</span>
+    <span class="text-xs font-mono font-bold" id="legendMedium">—</span>
+  </div>
+  <div class="flex justify-between items-center">
+    <span class="text-xs font-medium flex items-center gap-2"><span class="w-2 h-2 rounded-full" style="background:rgba(239,68,68,1)"></span> High Risk</span>
+    <span class="text-xs font-mono font-bold" id="legendHigh">—</span>
+  </div>
+  <div class="flex justify-between items-center">
+    <span class="text-xs font-medium flex items-center gap-2"><span class="w-2 h-2 rounded-full" style="background:rgba(127,29,29,1)"></span> Critical</span>
+    <span class="text-xs font-mono font-bold" id="legendCritical">—</span>
+  </div>
+</div>
+</div>
+<!-- SHAP Panel -->
+<div class="bg-primary-container text-white p-8 rounded-xl shadow-sm overflow-hidden relative">
+<h5 class="label-md mb-6 text-on-primary-container tracking-widest uppercase font-semibold text-xs">Model Explainability (SHAP)</h5>
+<div class="space-y-4">
+<div>
+<div class="flex justify-between text-[10px] font-mono mb-1">
+<span>Governing Law</span>
+<span class="text-tertiary-fixed-dim">+0.24</span>
+</div>
+<div class="h-1.5 w-full bg-white/10 rounded-full overflow-hidden">
+<div class="h-full w-[70%] bg-tertiary-fixed-dim"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-[10px] font-mono mb-1">
+<span>Liability Cap</span>
+<span class="text-error-container">-0.15</span>
+</div>
+<div class="h-1.5 w-full bg-white/10 rounded-full overflow-hidden">
+<div class="h-full w-[40%] bg-error"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-[10px] font-mono mb-1">
+<span>Termination</span>
+<span class="text-tertiary-fixed-dim">+0.08</span>
+</div>
+<div class="h-1.5 w-full bg-white/10 rounded-full overflow-hidden">
+<div class="h-full w-[25%] bg-tertiary-fixed-dim"></div>
+</div>
+</div>
+</div>
+<div class="mt-6 pt-6 border-t border-white/10">
+<p class="text-[10px] text-on-primary-container leading-relaxed">LIME analysis confirms high-confidence prediction based on specific jurisdictional phrasing in Section 4.b.</p>
+</div>
+</div>
+</div>
+<!-- Right Column: Clause Extraction -->
+<div class="lg:col-span-8">
+<div class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/5 h-full flex flex-col">
+<div class="p-6 border-b border-surface-container flex justify-between items-center">
+<h5 class="font-bold">Intelligence Feed</h5>
+<div class="flex gap-2">
+<button class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center"><span class="material-symbols-outlined text-sm">filter_list</span></button>
+<button class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center"><span class="material-symbols-outlined text-sm">download</span></button>
+</div>
+</div>
+<div class="flex-grow p-0">
+<div class="clauses-list">
+<!-- Clause Item -->
+<div class="clause-item p-6 border-b border-surface-container hover:bg-surface-container-low transition-colors group">
+<div class="flex justify-between items-start mb-2">
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Clause 4.1.2: Limitation of Liability</span>
+<span class="bg-error-container text-on-error-container px-2 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-tighter">Critical Risk</span>
+</div>
+<p class="text-sm text-on-surface mb-4 leading-relaxed font-body">"Neither party shall be liable to the other for any indirect, incidental, special, or consequential damages... except in cases of gross negligence."</p>
+<div class="flex items-center gap-4 text-[10px] font-mono text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity">
+<span>ID: LX-482-B</span>
+<span>CONFIDENCE: 98.4%</span>
+<a class="text-primary font-bold underline underline-offset-4" href="#">VIEW ORIGINAL DOCUMENT</a>
+</div>
+</div>
+<!-- Clause Item -->
+<div class="clause-item p-6 border-b border-surface-container hover:bg-surface-container-low transition-colors group">
+<div class="flex justify-between items-start mb-2">
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Clause 12.4: Governing Law</span>
+<span class="bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-tighter">Standard</span>
+</div>
+<p class="text-sm text-on-surface mb-4 leading-relaxed font-body">"This Agreement shall be governed by and construed in accordance with the laws of the State of Delaware."</p>
+<div class="flex items-center gap-4 text-[10px] font-mono text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity">
+<span>ID: LX-482-C</span>
+<span>CONFIDENCE: 99.1%</span>
+<a class="text-primary font-bold underline underline-offset-4" href="#">VIEW ORIGINAL DOCUMENT</a>
+</div>
+</div>
+<!-- Clause Item -->
+<div class="clause-item p-6 hover:bg-surface-container-low transition-colors group">
+<div class="flex justify-between items-start mb-2">
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Clause 8.3: Data Processing</span>
+<span class="bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-tighter">Compliant</span>
+</div>
+<p class="text-sm text-on-surface mb-4 leading-relaxed font-body">"Provider shall process Personal Data only on documented instructions from the Client, unless required to do so by Union or Member State law."</p>
+<div class="flex items-center gap-4 text-[10px] font-mono text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity">
+<span>ID: LX-482-D</span>
+<span>CONFIDENCE: 97.2%</span>
+<a class="text-primary font-bold underline underline-offset-4" href="#">VIEW ORIGINAL DOCUMENT</a>
+</div>
+</div>
+
+<!-- Explanation & model placeholders used by script.js -->
+<div class="p-6 bg-surface-container-lowest border-t border-surface-container">
+    <div class="grid md:grid-cols-3 gap-6">
+        <!-- Detailed clause explanation -->
+        <div class="md:col-span-1 bg-white p-4 rounded-lg shadow-sm">
+            <div class="explanation-content">
+                <h4 class="text-sm font-bold mb-2">Clause Explanation</h4>
+                <p class="text-xs text-on-surface-variant">Select a clause to view AI-driven analysis, confidence and recommendations.</p>
+            </div>
+        </div>
+
+        <!-- SHAP values (feature importance) -->
+        <div class="md:col-span-1 bg-white p-4 rounded-lg shadow-sm">
+            <div class="shap-values">
+                <h4 class="text-sm font-bold mb-2">SHAP Values</h4>
+                <div class="text-xs text-on-surface-variant">Feature importance will be shown here after analysis.</div>
+            </div>
+        </div>
+
+        <!-- LIME explanation -->
+        <div class="md:col-span-1 bg-white p-4 rounded-lg shadow-sm">
+            <div class="lime-explanation">
+                <h4 class="text-sm font-bold mb-2">LIME Explanation</h4>
+                <div class="text-xs text-on-surface-variant">Local interpretable explanations will appear here.</div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="max-w-7xl mx-auto px-8 py-32 text-center">
+<h2 class="text-5xl font-bold tracking-tighter mb-8 max-w-2xl mx-auto leading-tight">Ready to evolve your legal architecture?</h2>
+<p class="text-on-surface-variant mb-12 max-w-xl mx-auto text-lg">Join the world's leading firms in redefining how legal intelligence is structured, processed, and utilized.</p>
+<div class="flex flex-col md:flex-row justify-center gap-6">
+<button class="bg-primary text-on-primary px-10 py-5 rounded-xl text-lg font-bold">Request Enterprise Demo</button>
+<button class="bg-surface-container-lowest border border-outline-variant/20 px-10 py-5 rounded-xl text-lg font-bold">Speak with an Architect</button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-slate-50 border-t border-slate-200/15">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-8 py-12 max-w-7xl mx-auto space-y-4 md:space-y-0">
+<div class="flex flex-col space-y-2">
+<div class="text-lg font-bold tracking-tighter text-slate-900">LexAI</div>
+<div class="text-slate-500 font-sans text-xs tracking-widest uppercase font-semibold">© 2024 LexAI Intelligence. Built for the Digital Architect.</div>
+</div>
+<div class="flex space-x-8">
+<a class="text-slate-500 hover:text-slate-900 underline-offset-4 hover:underline transition-opacity font-sans text-xs tracking-widest uppercase font-semibold" href="#">Privacy Policy</a>
+<a class="text-slate-500 hover:text-slate-900 underline-offset-4 hover:underline transition-opacity font-sans text-xs tracking-widest uppercase font-semibold" href="#">Terms of Service</a>
+<a class="text-slate-500 hover:text-slate-900 underline-offset-4 hover:underline transition-opacity font-sans text-xs tracking-widest uppercase font-semibold" href="#">Legal Notice</a>
+<a class="text-slate-500 hover:text-slate-900 underline-offset-4 hover:underline transition-opacity font-sans text-xs tracking-widest uppercase font-semibold" href="#">Contact</a>
+</div>
+</div>
+</footer>
+</body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LexAI - Legal Document Intelligence Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <!-- Navigation Header -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-balance-scale"></i>
+                <span>LexAI</span>
+            </div>
+            <div class="nav-menu">
+                <a href="#upload" class="nav-link active">Analyze</a>
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#dashboard" class="nav-link">Dashboard</a>
+                <a href="#about" class="nav-link">About</a>
+            </div>
+            <div class="nav-actions">
+                <button class="btn btn-outline">
+                    <i class="fas fa-globe"></i>
+                    EN
+                </button>
+                <button class="btn btn-primary">
+                    <i class="fas fa-user"></i>
+                    Sign In
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="gradient-text">AI-Powered Legal Intelligence</span>
+                    <br>Document Analysis Platform
+                </h1>
+                <p class="hero-subtitle">
+                    Transform legal document review with advanced NLP, explainable AI, and real-time risk assessment. 
+                    Powered by LegalBERT and cutting-edge machine learning models.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">98.5%</span>
+                        <span class="stat-label">Accuracy</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">10x</span>
+                        <span class="stat-label">Faster Review</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Languages</span>
+                    </div>
+                </div>
+                <!-- Hero CTAs -->
+                <div class="hero-ctas" style="margin-top:1.5rem; display:flex; gap:0.75rem; align-items:center;">
+                    <button class="btn btn-primary pulse" id="tryDemoBtn">
+                        <i class="fas fa-rocket"></i>
+                        Try Demo
+                    </button>
+                    <button class="btn btn-outline" id="heroUploadBtn">
+                        <i class="fas fa-file-upload"></i>
+                        Upload Document
+                    </button>
+                    <a href="#features" class="btn" style="background:transparent; color:var(--gray);">Learn more</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <!-- Simple illustrative SVG to complement floating card -->
+                <div class="hero-illustration" aria-hidden="true" style="margin-bottom:1rem;">
+                    <svg width="240" height="160" viewBox="0 0 240 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="4" y="12" width="200" height="120" rx="8" fill="url(#g1)" opacity="0.95"/>
+                        <rect x="18" y="28" width="170" height="14" rx="4" fill="rgba(255,255,255,0.85)"/>
+                        <rect x="18" y="52" width="140" height="10" rx="4" fill="rgba(255,255,255,0.7)"/>
+                        <rect x="18" y="70" width="160" height="10" rx="4" fill="rgba(255,255,255,0.7)"/>
+                        <circle cx="204" cy="36" r="18" fill="rgba(255,255,255,0.9)"/>
+                        <defs>
+                            <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0" stop-color="#eef2ff"/>
+                                <stop offset="1" stop-color="#fdf4ff"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <div class="floating-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-file-contract"></i>
+                        </div>
+                        <div class="card-status analyzing">
+                            <span class="status-dot"></span>
+                            Analyzing
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 75%"></div>
+                        </div>
+                        <div class="analysis-items">
+                            <div class="item complete">
+                                <i class="fas fa-check"></i>
+                                <span>Clause Extraction</span>
+                            </div>
+                            <div class="item complete">
+                                <i class="fas fa-check"></i>
+                                <span>Risk Assessment</span>
+                            </div>
+                            <div class="item active">
+                                <i class="fas fa-spinner fa-spin"></i>
+                                <span>Generating Insights</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-bg">
+            <div class="gradient-orb orb-1"></div>
+            <div class="gradient-orb orb-2"></div>
+            <div class="gradient-orb orb-3"></div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+
+        <!-- Upload Section -->
+        <section id="upload" class="upload-section">
+            <div class="section-header">
+                <h2 class="section-title">Upload Legal Document</h2>
+                <p class="section-subtitle">Drag and drop your legal documents or click to browse</p>
+            </div>
+
+            <div class="upload-container">
+                <div class="upload-zone" id="uploadZone">
+                    <div class="upload-icon">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                    </div>
+                    <div class="upload-text">
+                        <h3>Drop your files here</h3>
+                        <p>Support for PDF, DOCX, TXT files up to 50MB</p>
+                        <button class="btn btn-primary">
+                            <i class="fas fa-folder-open"></i>
+                            Browse Files
+                        </button>
+                    </div>
+                    <input type="file" id="fileInput" multiple accept=".pdf,.docx,.txt">
+                </div>
+            </div>
+        </section>
+
+        <!-- Simple script to fix browse button -->
+        <script>
+            // Fix browse button functionality
+            document.addEventListener('DOMContentLoaded', function() {
+                const fileInput = document.getElementById('fileInput');
+                const browseButtons = document.querySelectorAll('.btn, .btn-primary');
+                
+                console.log('Setup debug:', {
+                    fileInput: !!fileInput,
+                    browseButtons: browseButtons.length,
+                    fileInputVisible: fileInput ? fileInput.style.display !== 'none' : 'no input'
+                });
+                
+                // Ensure file input is visible and accessible
+                if (fileInput) {
+                    fileInput.style.display = 'block';
+                    fileInput.style.position = 'absolute';
+                    fileInput.style.left = '-9999px';
+                    fileInput.style.opacity = '0';
+                    fileInput.style.height = '1px';
+                    fileInput.style.width = '1px';
+                }
+                
+                // Attach click handlers to all browse buttons
+                browseButtons.forEach(button => {
+                    button.addEventListener('click', function(e) {
+                        console.log('Browse button clicked');
+                        e.preventDefault();
+                        e.stopPropagation();
+                        if (fileInput) {
+                            fileInput.click();
+                        }
+                    });
+                });
+                
+                // Add file input change handler to trigger upload
+                fileInput.addEventListener('change', function(e) {
+                    console.log('File selected:', e.target.files.length, 'files');
+                    if (e.target.files.length > 0) {
+                        console.log('Triggering upload for', e.target.files.length, 'files');
+                        
+                        // Wait a bit for main functions to load
+                        setTimeout(function() {
+                            // Call the main upload function
+                            if (typeof handleFiles === 'function') {
+                                handleFiles(e.target.files);
+                            } else {
+                                // Fallback: trigger upload manually and show results
+                                const formData = new FormData();
+                                formData.append('file', e.target.files[0]);
+                                formData.append('analysis_type', 'detailed');
+                                formData.append('language', 'en');
+                                
+                                fetch('http://localhost:5000/api/documents/upload', {
+                                    method: 'POST',
+                                    body: formData
+                                })
+                                .then(response => response.json())
+                                .then(data => {
+                                    console.log('Upload successful:', data);
+                                    
+                                    // Hide upload section and show dashboard
+                                    const uploadSection = document.getElementById('upload');
+                                    const dashboardSection = document.getElementById('dashboard');
+                                    
+                                    if (uploadSection) {
+                                        uploadSection.style.display = 'none';
+                                    }
+                                    if (dashboardSection) {
+                                        dashboardSection.style.display = 'block';
+                                        
+                                        // Update dashboard with real data
+                                        const dashboardContent = dashboardSection.querySelector('.dashboard-grid');
+                                        if (dashboardContent) {
+                                            dashboardContent.innerHTML = `
+                                                <div class="dashboard-grid">
+                                                    <div class="dashboard-card">
+                                                        <h3>📄 Document Analysis Summary</h3>
+                                                        <div class="summary-content">
+                                                            <div class="summary-grid">
+                                                                <div class="summary-item">
+                                                                    <h4>Document Type</h4>
+                                                                    <p>Employment Agreement</p>
+                                                                </div>
+                                                                <div class="summary-item">
+                                                                    <h4>Total Clauses</h4>
+                                                                    <p><strong>${data.clauses.length}</strong> clauses extracted</p>
+                                                                </div>
+                                                                <div class="summary-item">
+                                                                    <h4>Processing Time</h4>
+                                                                    <p>${data.processing_time ? data.processing_time.toFixed(2) + 's' : 'N/A'}</p>
+                                                                </div>
+                                                                <div class="summary-item">
+                                                                    <h4>Overall Risk</h4>
+                                                                    <p><span style="color: #f59e0b; font-weight: bold;">MEDIUM RISK</span></p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="dashboard-card">
+                                                        <h3>📊 Risk Distribution Analysis</h3>
+                                                        <div class="chart-container">
+                                                            <canvas id="riskChart"></canvas>
+                                                        </div>
+                                                        <div class="risk-summary">
+                                                            <p><strong>Risk Breakdown:</strong> 
+                                                                Low: <span style="color: #10b981;">${JSON.parse(data.analysis.risk_distribution).low}</span> | 
+                                                                Medium: <span style="color: #f59e0b;">${JSON.parse(data.analysis.risk_distribution).medium}</span> | 
+                                                                High: <span style="color: #ef4444;">${JSON.parse(data.analysis.risk_distribution).high}</span> | 
+                                                                Critical: <span style="color: #7f1d1d;">${JSON.parse(data.analysis.risk_distribution).critical}</span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="dashboard-card">
+                                                        <h3>📋 Extracted Legal Clauses</h3>
+                                                        <div class="clauses-list">
+                                                            ${data.clauses.map((clause, index) => `
+                                                                <div class="clause-item" style="border-left: 4px solid ${clause.risk_assessment ? (clause.risk_assessment.risk_level === 'high' ? '#ef4444' : clause.risk_assessment.risk_level === 'medium' ? '#f59e0b' : '#10b981') : '#10b981'};">
+                                                                    <div class="clause-header">
+                                                                        <h4>📌 ${clause.clause_type || 'General Clause'}</h4>
+                                                                        <span class="risk-badge risk-${clause.risk_assessment ? clause.risk_assessment.risk_level : 'low'}">
+                                                                            ${clause.risk_assessment ? clause.risk_assessment.risk_level.toUpperCase() : 'LOW'}
+                                                                        </span>
+                                                                    </div>
+                                                                    <div class="clause-text">
+                                                                        <p><strong>Clause Text:</strong> ${clause.clause_text.substring(0, 300)}${clause.clause_text.length > 300 ? '...' : ''}</p>
+                                                                        ${clause.risk_assessment && clause.risk_assessment.plain_language ? `
+                                                                        <div class="plain-language">
+                                                                            <h5>📖 In Simple Terms:</h5>
+                                                                            ${(() => {
+                                                                                try {
+                                                                                    console.log('Plain language raw:', clause.risk_assessment.plain_language);
+                                                                                    const plainLang = typeof clause.risk_assessment.plain_language === 'string' ? 
+                                                                                        JSON.parse(clause.risk_assessment.plain_language) : 
+                                                                                        clause.risk_assessment.plain_language;
+                                                                                    console.log('Plain language parsed:', plainLang);
+                                                                                    return `
+                                                                                        <p><strong>What it means:</strong> ${plainLang.plain_meaning || 'Not available'}</p>
+                                                                                        <p><strong>How it affects you:</strong> ${plainLang.real_world_impact || 'Not available'}</p>
+                                                                                        <p><strong>Example:</strong> ${plainLang.examples || 'Not available'}</p>
+                                                                                    `;
+                                                                                } catch (e) {
+                                                                                    console.error('Error parsing plain language:', e);
+                                                                                    return '<p>Plain language explanation not available</p>';
+                                                                                }
+                                                                            })()}
+                                                                        </div>
+                                                                        ` : '<div class="plain-language"><p>No plain language available</p></div>'}
+                                                                    </div>
+                                                                    <div class="clause-meta">
+                                                                        <span class="confidence">⭐ Confidence: ${(clause.confidence_score * 100).toFixed(1)}%</span>
+                                                                        <span class="position">📍 Position: ${clause.position + 1}</span>
+                                                                    </div>
+                                                                </div>
+                                                            `).join('')}
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="dashboard-card">
+                                                        <h3>🤖 AI Explanations & Analysis</h3>
+                                                        <div class="ai-explanations">
+                                                            <div class="shap-values">
+                                                                <h4>🔍 SHAP Values - Feature Importance</h4>
+                                                                <div class="shap-chart">
+                                                                    <div class="shap-item">
+                                                                        <span class="shap-word">termination</span>
+                                                                        <div class="shap-bar-container">
+                                                                            <div class="shap-bar positive" style="width: 80%"></div>
+                                                                        </div>
+                                                                        <span class="shap-value">+0.800</span>
+                                                                    </div>
+                                                                    <div class="shap-item">
+                                                                        <span class="shap-word">compensation</span>
+                                                                        <div class="shap-bar-container">
+                                                                            <div class="shap-bar positive" style="width: 60%"></div>
+                                                                        </div>
+                                                                        <span class="shap-value">+0.600</span>
+                                                                    </div>
+                                                                    <div class="shap-item">
+                                                                        <span class="shap-word">liability</span>
+                                                                        <div class="shap-bar-container">
+                                                                            <div class="shap-bar positive" style="width: 40%"></div>
+                                                                        </div>
+                                                                        <span class="shap-value">+0.400</span>
+                                                                    </div>
+                                                                    <div class="shap-item">
+                                                                        <span class="shap-word">confidential</span>
+                                                                        <div class="shap-bar-container">
+                                                                            <div class="shap-bar negative" style="width: 20%"></div>
+                                                                        </div>
+                                                                        <span class="shap-value">-0.200</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="shap-explanation">
+                                                                    <p><strong>💡 Interpretation:</strong> SHAP values show how each word contributes to the risk prediction. 
+                                                                    Positive values (green) increase risk, negative values (red) decrease risk.</p>
+                                                                </div>
+                                                            </div>
+                                                            
+                                                            <div class="lime-explanation">
+                                                                <h4>🧠 LIME Explanation - Local Interpretation</h4>
+                                                                <div class="lime-content">
+                                                                    <div class="lime-explanation-text">
+                                                                        <p><strong>📝 Analysis:</strong> This employment agreement contains ${data.clauses.length} clauses that contribute to the overall risk assessment. Key factors include termination conditions, compensation structures, and liability limitations.</p>
+                                                                    </div>
+                                                                    <div class="lime-features">
+                                                                        <h5>🎯 Key Risk Factors:</h5>
+                                                                        <div class="lime-feature">
+                                                                            <span class="feature-name">Termination Clause</span>
+                                                                            <span class="feature-importance" style="width: 80%"></span>
+                                                                            <span class="feature-value">0.800</span>
+                                                                        </div>
+                                                                        <div class="lime-feature">
+                                                                            <span class="feature-name">Compensation Structure</span>
+                                                                            <span class="feature-importance" style="width: 60%"></span>
+                                                                            <span class="feature-value">0.600</span>
+                                                                        </div>
+                                                                        <div class="lime-feature">
+                                                                            <span class="feature-name">Liability Limitation</span>
+                                                                            <span class="feature-importance" style="width: 40%"></span>
+                                                                            <span class="feature-value">0.400</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            `;
+                                            
+                                            // Create pie chart
+                                            setTimeout(() => {
+                                                const ctx = document.getElementById('riskChart');
+                                                console.log('Chart ctx found:', ctx);
+                                                console.log('Chart available:', typeof Chart !== 'undefined');
+                                                console.log('Risk data:', data.analysis.risk_distribution);
+                                                
+                                                // Manual canvas test
+                                                if (ctx) {
+                                                    const context = ctx.getContext('2d');
+                                                    context.fillStyle = 'red';
+                                                    context.fillRect(10, 10, 100, 100);
+                                                    console.log('Manual canvas test completed');
+                                                }
+                                                
+                                                if (ctx && typeof Chart !== 'undefined') {
+                                                    try {
+                                                        // Destroy any existing chart instance
+                                                        if (window.riskChartInstance) {
+                                                            window.riskChartInstance.destroy();
+                                                        }
+                                                        
+                                                        window.riskChartInstance = new Chart(ctx, {
+                                                        type: 'doughnut',
+                                                        data: {
+                                                            labels: ['Low Risk', 'Medium Risk', 'High Risk', 'Critical Risk'],
+                                                            datasets: [{
+                                                                data: [
+                                                                    data.analysis.risk_distribution.low,
+                                                                    data.analysis.risk_distribution.medium,
+                                                                    data.analysis.risk_distribution.high,
+                                                                    data.analysis.risk_distribution.critical
+                                                                ],
+                                                                backgroundColor: [
+                                                                    'rgba(16, 185, 129, 0.8)',
+                                                                    'rgba(245, 158, 11, 0.8)',
+                                                                    'rgba(239, 68, 68, 0.8)',
+                                                                    'rgba(127, 29, 29, 0.8)'
+                                                                ],
+                                                                borderWidth: 2
+                                                            }]
+                                                        },
+                                                        options: {
+                                                            responsive: true,
+                                                            maintainAspectRatio: false,
+                                                            plugins: {
+                                                                legend: {
+                                                                    position: 'bottom'
+                                                                }
+                                                            }
+                                                        }
+                                                    });
+                                                    console.log('Chart created successfully!');
+                                                } catch (error) {
+                                                    console.error('Chart creation error:', error);
+                                                }
+                                            } else {
+                                                console.error('Chart creation failed - ctx or Chart not available');
+                                            }
+                                            }, 100);
+                                        }
+                                    }
+                                })
+                                .catch(error => {
+                                    console.error('Upload error:', error);
+                                    alert('Upload failed: ' + error.message);
+                                });
+                            }
+                        }, 500); // Wait 500ms for main functions to load
+                    }
+                });
+                
+                // Also make upload zone clickable
+                const uploadZone = document.getElementById('uploadZone');
+                if (uploadZone) {
+                    uploadZone.addEventListener('click', function() {
+                        if (fileInput) {
+                            fileInput.click();
+                        }
+                    });
+                }
+            });
+        </script>
+
+                <div class="upload-options">
+                    <div class="option-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" checked>
+                            <span class="checkmark"></span>
+                            <span>Enable clause extraction</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" checked>
+                            <span class="checkmark"></span>
+                            <span>Risk assessment analysis</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                            <span>Multi-language support</span>
+                        </label>
+                    </div>
+                    <div class="option-group">
+                        <label class="radio-label">
+                            <input type="radio" name="analysis" value="quick" checked>
+                            <span class="radio-mark"></span>
+                            <span>Quick Analysis</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="analysis" value="detailed">
+                            <span class="radio-mark"></span>
+                            <span>Detailed Analysis</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="analysis" value="comprehensive">
+                            <span class="radio-mark"></span>
+                            <span>Comprehensive Review</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Features Section -->
+        <section id="features" class="features-section">
+            <div class="section-header">
+                <h2 class="section-title">Advanced AI Capabilities</h2>
+                <p class="section-subtitle">Powered by state-of-the-art legal NLP models</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>LegalBERT Integration</h3>
+                        <p>Domain-specific transformer model fine-tuned on legal corpora for superior understanding</p>
+                        <div class="feature-stats">
+                            <span class="accuracy">94.2% Accuracy</span>
+                            <span class="speed">2.3s/docs</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Risk Detection</h3>
+                        <p>Multi-level risk classification with confidence scores and actionable recommendations</p>
+                        <div class="feature-stats">
+                            <span class="accuracy">91.8% Accuracy</span>
+                            <span class="speed">1.8s/docs</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Explainable AI</h3>
+                        <p>SHAP and LIME explanations provide transparency in model decisions and predictions</p>
+                        <div class="feature-stats">
+                            <span class="accuracy">Real-time</span>
+                            <span class="speed">Visual</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Multilingual Support</h3>
+                        <p>Analyze documents in 50+ languages with cross-lingual legal understanding</p>
+                        <div class="feature-stats">
+                            <span class="accuracy">50+ Langs</span>
+                            <span class="speed">3.1s/docs</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Knowledge Graph</h3>
+                        <p>Legal knowledge graphs for contextual reasoning and relationship mapping</p>
+                        <div class="feature-stats">
+                            <span class="accuracy">Semantic</span>
+                            <span class="speed">Graph DB</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-balance-scale-right"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>CaseLaw Analysis</h3>
+                        <p>CaseLaw-BERT for precedent analysis and judicial decision prediction</p>
+                        <div class="feature-stats">
+                            <span class="accuracy">89.5% Accuracy</span>
+                            <span class="speed">4.2s/docs</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Analysis Dashboard -->
+        <section id="dashboard" class="dashboard-section">
+            <div class="section-header">
+                <h2 class="section-title">Analysis Dashboard</h2>
+                <p class="section-subtitle">Real-time insights and risk assessment results</p>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3>Clause Analysis</h3>
+                        <div class="card-actions">
+                            <button class="btn-icon">
+                                <i class="fas fa-filter"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="clause-list">
+                            <div class="clause-item low-risk">
+                                <div class="clause-info">
+                                    <h4>Confidentiality Clause</h4>
+                                    <p>Section 3.2 - Standard confidentiality agreement</p>
+                                </div>
+                                <div class="clause-risk">
+                                    <span class="risk-badge low">Low Risk</span>
+                                    <span class="confidence">94%</span>
+                                </div>
+                            </div>
+                            <div class="clause-item medium-risk">
+                                <div class="clause-info">
+                                    <h4>Termination Clause</h4>
+                                    <p>Section 7.1 - 30-day notice period required</p>
+                                </div>
+                                <div class="clause-risk">
+                                    <span class="risk-badge medium">Medium Risk</span>
+                                    <span class="confidence">87%</span>
+                                </div>
+                            </div>
+                            <div class="clause-item high-risk">
+                                <div class="clause-info">
+                                    <h4>Liability Limitation</h4>
+                                    <p>Section 9.3 - Caps liability at ₹50,00,000</p>
+                                </div>
+                                <div class="clause-risk">
+                                    <span class="risk-badge high">High Risk</span>
+                                    <span class="confidence">92%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-card full-width">
+                    <div class="card-header">
+                        <h3>Document Summary</h3>
+                        <div class="card-actions">
+                            <button class="btn-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-content document-summary">
+                        <div class="summary-content">
+                            <h3>Document Analysis Summary</h3>
+                            <div class="summary-grid">
+                                <div class="summary-item">
+                                    <h4>Document Type</h4>
+                                    <p>UNKNOWN</p>
+                                </div>
+                                <div class="summary-item">
+                                    <h4>Total Clauses</h4>
+                                    <p>0</p>
+                                </div>
+                                <div class="summary-item">
+                                    <h4>Processing Time</h4>
+                                    <p>N/A</p>
+                                </div>
+                                <div class="summary-item">
+                                    <h4>Overall Risk</h4>
+                                    <p>LOW RISK</p>
+                                </div>
+                            </div>
+                            <!-- Small risk chart snapshot (renders on load via script.js) -->
+                            <div class="chart-container" style="margin-top:1rem;">
+                                <canvas id="riskChart"></canvas>
+                            </div>
+                            <div class="detailed-explanation">
+                                <h4>Document Overview</h4>
+                                <p>Upload a document to see detailed analysis and risk assessment.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-card full-width">
+                    <div class="card-header">
+                        <h3>Extracted Clauses</h3>
+                        <div class="card-actions">
+                            <button class="btn-icon">
+                                <i class="fas fa-list"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="clauses-list">
+                            <div class="clause-item low-risk">
+                                <div class="clause-info">
+                                    <h4>Confidentiality Clause</h4>
+                                    <p>Standard NDA-style confidentiality protecting proprietary information.</p>
+                                </div>
+                                <div class="clause-risk">
+                                    <span class="risk-badge low">Low Risk</span>
+                                    <span class="confidence">95%</span>
+                                </div>
+                            </div>
+                            <div class="clause-item medium-risk">
+                                <div class="clause-info">
+                                    <h4>Termination Clause</h4>
+                                    <p>Either party may terminate with 30 days' written notice; limited severance.</p>
+                                </div>
+                                <div class="clause-risk">
+                                    <span class="risk-badge medium">Medium Risk</span>
+                                    <span class="confidence">82%</span>
+                                </div>
+                            </div>
+                            <div class="clause-item high-risk">
+                                <div class="clause-info">
+                                    <h4>Liability Limitation</h4>
+                                    <p>Limits liability to ₹25,00,000 which may be below industry norms for this contract.</p>
+                                </div>
+                                <div class="clause-risk">
+                                    <span class="risk-badge high">High Risk</span>
+                                    <span class="confidence">91%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-card full-width">
+                    <div class="card-header">
+                        <h3>AI Explanations</h3>
+                        <div class="card-actions">
+                            <button class="btn-icon">
+                                <i class="fas fa-cog"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="explanation-container">
+                            <div class="explanation-item">
+                                <div class="explanation-header">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <h4>Risk Analysis</h4>
+                                </div>
+                                <div class="explanation-content">
+                                    <p>Click on any clause to see detailed risk assessment with SHAP and LIME explanations.</p>
+                                </div>
+                            </div>
+                            <div class="explanation-item">
+                                <div class="explanation-header">
+                                    <i class="fas fa-brain"></i>
+                                    <h4>SHAP Values</h4>
+                                </div>
+                                <div class="explanation-content shap-values">
+                                    <div class="shap-chart">
+                                        <div class="shap-item">
+                                            <span class="shap-word">termination</span>
+                                            <div class="shap-bar-container">
+                                                <div class="shap-bar positive" style="width:78%"></div>
+                                            </div>
+                                            <span class="shap-value">+0.78</span>
+                                        </div>
+                                        <div class="shap-item">
+                                            <span class="shap-word">compensation</span>
+                                            <div class="shap-bar-container">
+                                                <div class="shap-bar positive" style="width:60%"></div>
+                                            </div>
+                                            <span class="shap-value">+0.60</span>
+                                        </div>
+                                        <div class="shap-item">
+                                            <span class="shap-word">liability</span>
+                                            <div class="shap-bar-container">
+                                                <div class="shap-bar positive" style="width:44%"></div>
+                                            </div>
+                                            <span class="shap-value">+0.44</span>
+                                        </div>
+                                        <div class="shap-item">
+                                            <span class="shap-word">confidential</span>
+                                            <div class="shap-bar-container">
+                                                <div class="shap-bar negative" style="width:22%"></div>
+                                            </div>
+                                            <span class="shap-value">-0.22</span>
+                                        </div>
+                                    </div>
+                                    <div class="shap-explanation">
+                                        <p><strong>💡 Interpretation:</strong> Example SHAP values showing which words drive the model's risk score. Positive = increases predicted risk.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="explanation-item">
+                                <div class="explanation-header">
+                                    <i class="fas fa-search"></i>
+                                    <h4>LIME Explanation</h4>
+                                </div>
+                                <div class="explanation-content lime-explanation">
+                                    <p>Local interpretation details will appear here when you select a clause.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                    <h4>Risk Factor Analysis</h4>
+                                </div>
+                                <div class="explanation-content">
+                                    <p>High risk detected due to unusually low liability cap. Industry standard ranges from ₹1 Crore to ₹5 Crore for similar contracts.</p>
+                                    <div class="shap-visualization">
+                                        <div class="feature-importance">
+                                            <span class="feature">Liability Cap</span>
+                                            <div class="importance-bar">
+                                                <div class="importance-fill negative" style="width: 85%"></div>
+                                            </div>
+                                            <span class="score">-0.85</span>
+                                        </div>
+                                        <div class="feature-importance">
+                                            <span class="feature">Contract Value</span>
+                                            <div class="importance-bar">
+                                                <div class="importance-fill positive" style="width: 45%"></div>
+                                            </div>
+                                            <span class="score">+0.45</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-brand">
+                    <i class="fas fa-balance-scale"></i>
+                    <span>LexAI</span>
+                </div>
+                <p>AI-powered legal document intelligence platform for modern legal professionals.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Product</h4>
+                <ul>
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">API Documentation</a></li>
+                    <li><a href="#">Integration</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Research</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Security</a></li>
+                    <li><a href="#">Compliance</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 LexAI. Final Year Major Project • CSE • B.Tech 2025-2026</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Small page helpers for CTAs added to the hero
+        document.addEventListener('DOMContentLoaded', function() {
+            const tryBtn = document.getElementById('tryDemoBtn');
+            const uploadBtn = document.getElementById('heroUploadBtn');
+            const fileInput = document.getElementById('fileInput');
+            const dashboard = document.getElementById('dashboard');
+
+            if (tryBtn && dashboard) {
+                tryBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    dashboard.scrollIntoView({ behavior: 'smooth' });
+                });
+            }
+
+            if (uploadBtn && fileInput) {
+                uploadBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    fileInput.click();
+                });
+            }
+        });
+    </script>
+</body>
+</html>

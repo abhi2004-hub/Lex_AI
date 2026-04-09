@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LexAI | Dashboard</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-surface": "#191c1e",
+              "primary-container": "#131b2e",
+              "background": "#f7f9fb",
+              "secondary-container": "#d0e1fb",
+              "surface-container-high": "#e6e8ea",
+              "surface": "#f7f9fb",
+              "primary": "#000000",
+              "inverse-surface": "#2d3133",
+              "surface-container": "#eceef0",
+              "on-surface-variant": "#45464d",
+              "outline": "#76777d",
+              "primary-fixed": "#dae2fd",
+              "surface-container-lowest": "#ffffff",
+              "surface-bright": "#f7f9fb",
+              "on-secondary-fixed-variant": "#38485d",
+              "on-secondary-fixed": "#0b1c30",
+              "error": "#ba1a1a",
+              "secondary": "#505f76",
+              "on-error": "#ffffff",
+              "on-primary-container": "#7c839b",
+              "on-error-container": "#93000a",
+              "on-secondary": "#ffffff",
+              "on-tertiary-fixed": "#001d31",
+              "surface-container-highest": "#e0e3e5",
+              "tertiary-container": "#001d31",
+              "tertiary": "#000000",
+              "secondary-fixed": "#d3e4fe",
+              "on-tertiary": "#ffffff",
+              "inverse-primary": "#bec6e0",
+              "outline-variant": "#c6c6cd",
+              "surface-dim": "#d8dadc",
+              "error-container": "#ffdad6",
+              "tertiary-fixed-dim": "#93ccff",
+              "tertiary-fixed": "#cce5ff",
+              "surface-tint": "#565e74",
+              "inverse-on-surface": "#eff1f3",
+              "primary-fixed-dim": "#bec6e0",
+              "on-background": "#191c1e",
+              "surface-container-low": "#f2f4f6",
+              "on-primary-fixed-variant": "#3f465c",
+              "on-primary-fixed": "#131b2e",
+              "on-primary": "#ffffff",
+              "on-tertiary-fixed-variant": "#004b73",
+              "on-secondary-container": "#54647a",
+              "on-tertiary-container": "#188ace",
+              "secondary-fixed-dim": "#b7c8e1",
+              "surface-variant": "#e0e3e5"
+            },
+            fontFamily: {
+              "headline": ["Inter", "sans-serif"],
+              "body": ["Inter", "sans-serif"],
+              "label": ["Inter", "sans-serif"],
+              "mono": ["JetBrains Mono", "monospace"]
+            },
+            borderRadius: {
+              "DEFAULT": "0.25rem",
+              "lg": "0.5rem",
+              "xl": "1.5rem",
+              "full": "9999px"
+            },
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        vertical-align: middle;
+      }
+      .glass-effect {
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+      }
+      .tonal-transition {
+        transition: background-color 0.3s ease;
+      }
+      .text-gradient {
+        background: linear-gradient(135deg, #000000, #45464d);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .hero-stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased">
+<!-- TopAppBar Navigation -->
+<header class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-xl shadow-[0_24px_48px_-12px_rgba(15,23,42,0.08)]">
+<nav class="flex justify-between items-center w-full px-8 py-4 max-w-7xl mx-auto">
+<div class="text-xl font-bold tracking-tighter text-slate-900">LexAI</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-slate-900 font-semibold border-b-2 border-slate-900 pb-1 font-sans tracking-tight text-sm" href="index.html">Home</a>
+<a class="text-slate-500 hover:text-slate-900 transition-colors font-sans tracking-tight text-sm font-medium" href="#">Intelligence</a>
+<a class="text-slate-500 hover:text-slate-900 transition-colors font-sans tracking-tight text-sm font-medium" href="#">Security</a>
+<a class="text-slate-500 hover:text-slate-900 transition-colors font-sans tracking-tight text-sm font-medium" href="#">Enterprise</a>
+</div>
+<div class="flex items-center space-x-4">
+<button class="text-slate-900 font-sans tracking-tight text-sm font-medium hover:opacity-80 transition-all duration-300">Sign In</button>
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-lg font-sans tracking-tight text-sm font-medium scale-95 active:scale-90 transition-transform">Get Started</button>
+</div>
+</nav>
+</header>
+<main class="pt-32">
+<!-- Dashboard content (excerpted from provided design) -->
+<section class="bg-surface-container-low py-32">
+<div class="max-w-7xl mx-auto px-8">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-bold tracking-tight mb-4">Command Center</h2>
+<p class="text-on-surface-variant">Sophisticated AI insights for high-fidelity legal management.</p>
+</div>
+<div class="max-w-3xl mx-auto mb-12">
+  <img src="assets/dashboard-screen.png" alt="Dashboard preview" class="w-full rounded-xl shadow-lg" loading="lazy"/>
+</div>
+<div class="grid lg:grid-cols-12 gap-8">
+<!-- Left Rail -->
+<div class="lg:col-span-4 space-y-8">
+<!-- Enhanced Risk Distribution -->
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm border border-outline-variant/10">
+<h5 class="mb-6 text-on-surface-variant tracking-widest uppercase font-bold text-[10px]">Strategic Risk Vector</h5>
+<div class="flex justify-center items-center py-4 relative h-48">
+<!-- Outer Donut: Legal -->
+<svg class="absolute w-40 h-40 -rotate-90">
+<circle cx="80" cy="80" fill="none" r="70" stroke="#f1f5f9" stroke-width="8"></circle>
+<circle cx="80" cy="80" fill="none" r="70" stroke="#000" stroke-dasharray="320 440" stroke-linecap="round" stroke-width="8"></circle>
+</svg>
+<!-- Inner Donut: Operational -->
+<svg class="absolute w-32 h-32 -rotate-90">
+<circle cx="64" cy="64" fill="none" r="54" stroke="#f1f5f9" stroke-width="8"></circle>
+<circle cx="64" cy="64" fill="none" r="54" stroke="#94a3b8" stroke-dasharray="210 340" stroke-linecap="round" stroke-width="8"></circle>
+</svg>
+<!-- Center Score -->
+<div class="text-center z-10">
+<div class="text-3xl font-bold">84</div>
+<div class="text-[9px] uppercase font-bold text-on-surface-variant tracking-tighter">Aggregate Score</div>
+</div>
+</div>
+<div class="space-y-4 mt-8">
+<div class="flex justify-between items-center pb-2 border-b border-surface-container">
+<span class="text-xs font-semibold flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span> Legal Exposure</span>
+<span class="text-xs font-mono font-bold">High</span>
+</div>
+<div class="flex justify-between items-center pb-2 border-b border-surface-container">
+<span class="text-xs font-semibold flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-slate-400"></span> Financial Impact</span>
+<span class="text-xs font-mono font-bold">Nominal</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-xs font-semibold flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-secondary-container"></span> Operational Friction</span>
+<span class="text-xs font-mono font-bold">Moderate</span>
+</div>
+</div>
+</div>
+<!-- Deepened SHAP Section -->
+<div class="bg-primary-container text-white p-8 rounded-xl shadow-xl border border-white/5 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl"></div>
+<h5 class="mb-6 text-on-primary-container tracking-widest uppercase font-bold text-[10px]">Model Explainability (SHAP Value)</h5>
+<div class="space-y-5">
+<div>
+<div class="flex justify-between text-[10px] font-mono mb-2 uppercase tracking-wide">
+<span>Indemnification Scope</span>
+<span class="text-tertiary-fixed-dim">+0.38</span>
+</div>
+<div class="h-2 w-full bg-white/5 rounded-full">
+<div class="h-full w-[85%] bg-tertiary-fixed-dim rounded-full shadow-[0_0_8px_rgba(147,204,255,0.4)]"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-[10px] font-mono mb-2 uppercase tracking-wide">
+<span>Governing Law Nuance</span>
+<span class="text-tertiary-fixed-dim">+0.12</span>
+</div>
+<div class="h-2 w-full bg-white/5 rounded-full">
+<div class="h-full w-[35%] bg-tertiary-fixed-dim rounded-full"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-[10px] font-mono mb-2 uppercase tracking-wide">
+<span>Survival Periods</span>
+<span class="text-error-container">-0.22</span>
+</div>
+<div class="h-2 w-full bg-white/5 rounded-full">
+<div class="h-full w-[55%] bg-error rounded-full"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-[10px] font-mono mb-2 uppercase tracking-wide">
+<span>Liability Attribution</span>
+<span class="text-tertiary-fixed-dim">+0.09</span>
+</div>
+<div class="h-2 w-full bg-white/5 rounded-full">
+<div class="h-full w-[20%] bg-tertiary-fixed-dim rounded-full"></div>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-white/10">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-xs text-on-primary-container">info</span>
+<span class="text-[9px] uppercase font-bold tracking-widest text-on-primary-container">Architect's Note</span>
+</div>
+<p class="text-[11px] text-white/60 leading-relaxed italic">Variance in SHAP value driven by aggressive 'Indirect Damages' exclusions in Section 8.4(c).</p>
+</div>
+</div>
+<!-- Knowledge Graph Teaser -->
+<div class="bg-surface-container-low p-6 rounded-xl border border-outline-variant/20 group hover:border-primary/20 transition-all cursor-pointer">
+<div class="flex justify-between items-center mb-4">
+<h5 class="text-[10px] font-bold uppercase tracking-widest">Semantic Mesh</h5>
+<span class="material-symbols-outlined text-sm text-primary group-hover:translate-x-1 transition-transform">auto_awesome</span>
+</div>
+<div class="relative h-24 flex items-center justify-center">
+<div class="absolute w-12 h-12 rounded-full border border-primary/20 animate-pulse"></div>
+<div class="flex gap-4">
+<div class="w-8 h-8 rounded-lg bg-white border border-outline-variant/20 shadow-sm flex items-center justify-center text-[8px] font-bold">IP</div>
+<div class="w-8 h-8 rounded-lg bg-primary text-white shadow-lg flex items-center justify-center text-[8px] font-bold">TERM</div>
+<div class="w-8 h-8 rounded-lg bg-white border border-outline-variant/20 shadow-sm flex items-center justify-center text-[8px] font-bold">CONF</div>
+</div>
+<svg class="absolute inset-0 w-full h-full opacity-20">
+<line stroke="black" stroke-dasharray="4" stroke-width="1" x1="20%" x2="45%" y1="50%" y2="50%"></line>
+<line stroke="black" stroke-dasharray="4" stroke-width="1" x1="55%" x2="80%" y1="50%" y2="50%"></line>
+</svg>
+</div>
+<p class="text-[10px] text-on-surface-variant text-center mt-2">Map 48 hidden cross-clause dependencies</p>
+</div>
+</div>
+<!-- Right Column: Intelligence Feed -->
+<div class="lg:col-span-8">
+<div class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/5 h-full flex flex-col overflow-hidden">
+<div class="p-8 border-b border-surface-container flex justify-between items-center bg-white">
+<div>
+<h5 class="text-xl font-bold tracking-tight">Intelligence Feed</h5>
+<p class="text-xs text-on-surface-variant mt-1">High-fidelity structural decomposition</p>
+</div>
+<div class="flex gap-3">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors text-[11px] font-bold uppercase tracking-wider flex items-center gap-2">
+<span class="material-symbols-outlined text-xs">filter_alt</span> Filter
+</button>
+<button class="px-3 py-1.5 rounded-lg bg-primary text-white text-[11px] font-bold uppercase tracking-wider flex items-center gap-2">
+<span class="material-symbols-outlined text-xs">analytics</span> Full Report
+</button>
+</div>
+</div>
+<div class="flex-grow divide-y divide-surface-container">
+<!-- Clause Item: Force Majeure -->
+<div class="p-8 hover:bg-surface-container-low transition-colors group relative">
+<div class="flex justify-between items-start mb-3">
+<div class="space-y-1">
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Section 14.2: Force Majeure</span>
+<div class="flex items-center gap-2">
+<h6 class="text-sm font-bold">Pandemic Exclusion Loophole</h6>
+<span class="bg-amber-100 text-amber-800 px-2 py-0.5 rounded text-[9px] font-bold">MODERATE RISK</span>
+</div>
+</div>
+<span class="text-[10px] font-mono text-on-surface-variant px-2 py-1 bg-surface-container rounded">ID: LX-902-A</span>
+</div>
+<p class="text-sm text-on-surface-variant mb-5 leading-relaxed font-body bg-surface-container-lowest p-4 rounded-lg border border-outline-variant/10 italic border-l-4 border-l-amber-400">
+"In no event shall a Public Health Emergency, including but not limited to COVID-19 or subsequent mutations, be deemed a Force Majeure event if such event was foreseeable as of the Effective Date."
+</p>
+<div class="grid grid-cols-2 gap-4">
+<div class="p-3 bg-surface-container-low rounded-lg">
+<div class="text-[9px] font-bold text-on-surface-variant uppercase mb-1">Architectural Implication</div>
+<p class="text-[11px] leading-tight">Limits business continuity protections in high-volatility jurisdictions. Recommend broadening 'Foreseeability' definition.</p>
+</div>
+<div class="p-3 bg-primary-container text-white/90 rounded-lg">
+<div class="text-[9px] font-bold text-on-primary-container uppercase mb-1">AI Recommendation</div>
+<p class="text-[11px] leading-tight font-medium">Auto-generate rebuttal based on 2023 Delaware Court of Chancery precedents.</p>
+</div>
+</div>
+</div>
+<!-- Clause Item: IP Assignment -->
+<div class="p-8 hover:bg-surface-container-low transition-colors group relative">
+<div class="flex justify-between items-start mb-3">
+<div class="space-y-1">
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Section 5.4: Intellectual Property</span>
+<div class="flex items-center gap-2">
+<h6 class="text-sm font-bold">IP Assignment &amp; Survival Periods</h6>
+<span class="bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded text-[9px] font-bold uppercase">Optimized</span>
+</div>
+</div>
+<span class="text-[10px] font-mono text-on-surface-variant px-2 py-1 bg-surface-container rounded">ID: LX-902-B</span>
+</div>
+<p class="text-sm text-on-surface-variant mb-5 leading-relaxed font-body bg-surface-container-lowest p-4 rounded-lg border border-outline-variant/10 italic border-l-4 border-l-emerald-400">
+"All Developed IP shall be assigned to Client in perpetuity. Obligations under this Section 5.4 shall survive the expiration or termination of this Agreement for a period of ten (10) years."
+</p>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-emerald-600">check_circle</span>
+<span class="text-[10px] font-bold">Survival: 10Y (Strong)</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-emerald-600">verified</span>
+<span class="text-[10px] font-bold">Global Assignment: Yes</span>
+</div>
+<div class="flex-grow"></div>
+<button class="text-[10px] font-bold text-primary underline underline-offset-4 opacity-0 group-hover:opacity-100 transition-opacity uppercase tracking-widest">Map Lineage</button>
+</div>
+</div>
+<!-- Clause Item: Indemnification -->
+<div class="p-8 hover:bg-surface-container-low transition-colors group relative">
+<div class="flex justify-between items-start mb-3">
+<div class="space-y-1">
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Section 12.1: Indemnification Scope</span>
+<div class="flex items-center gap-2">
+<h6 class="text-sm font-bold">Third-Party Claim Coverage</h6>
+<span class="bg-red-100 text-red-800 px-2 py-0.5 rounded text-[9px] font-bold uppercase tracking-tighter">Critical Risk</span>
+</div>
+</div>
+<span class="text-[10px] font-mono text-on-surface-variant px-2 py-1 bg-surface-container rounded">ID: LX-902-C</span>
+</div>
+<p class="text-sm text-on-surface mb-4 leading-relaxed font-body">"Provider shall defend, indemnify, and hold harmless Client from any and all losses arising out of any third-party claim, regardless of Provider's negligence or willful misconduct."</p>
+<div class="flex items-center gap-4 py-2">
+<div class="h-1.5 flex-grow bg-surface-container rounded-full overflow-hidden">
+<div class="h-full w-[94%] bg-red-500"></div>
+</div>
+<span class="text-[10px] font-mono font-bold text-red-600">94% CONFLICT</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="max-w-7xl mx-auto px-8 py-32 text-center">
+<h2 class="text-5xl font-bold tracking-tighter mb-8 max-w-2xl mx-auto leading-tight">Ready to evolve your legal architecture?</h2>
+<p class="text-on-surface-variant mb-12 max-w-xl mx-auto text-lg">Join the world's leading firms in redefining how legal intelligence is structured, processed, and utilized.</p>
+<div class="flex flex-col md:flex-row justify-center gap-6">
+<button class="bg-primary text-on-primary px-10 py-5 rounded-xl text-lg font-bold">Request Enterprise Demo</button>
+<button class="bg-surface-container-lowest border border-outline-variant/20 px-10 py-5 rounded-xl text-lg font-bold">Speak with an Architect</button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-slate-50 border-t border-slate-200/15">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-8 py-12 max-w-7xl mx-auto space-y-4 md:space-y-0">
+<div class="flex flex-col space-y-2">
+<div class="text-lg font-bold tracking-tighter text-slate-900">LexAI</div>
+<div class="text-slate-500 font-sans text-xs tracking-widest uppercase font-semibold">© 2024 LexAI Intelligence. Built for the Digital Architect.</div>
+</div>
+<div class="flex space-x-8">
+<a class="text-slate-500 hover:text-slate-900 underline-offset-4 hover:underline transition-opacity font-sans text-xs tracking-widest uppercase font-semibold" href="#">Privacy Policy</a>
+<a class="text-slate-500 hover:text-slate-900 underline-offset-4 hover:underline transition-opacity font-sans text-xs tracking-widest uppercase font-semibold" href="#">Terms of Service</a>
+<a class="text-slate-500 hover:text-slate-900 underline-offset-4 hover:underline transition-opacity font-sans text-xs tracking-widest uppercase font-semibold" href="#">Legal Notice</a>
+<a class="text-slate-500 hover:text-slate-900 underline-offset-4 hover:underline transition-opacity font-sans text-xs tracking-widest uppercase font-semibold" href="#">Contact</a>
+</div>
+</div>
+</footer>
+</body></html>

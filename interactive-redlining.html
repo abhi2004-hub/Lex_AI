@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LexArchitect | AI Redlining Studio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-tertiary": "#ffffff",
+              "on-secondary-fixed-variant": "#38485d",
+              "secondary-fixed-dim": "#b7c8e1",
+              "on-tertiary-fixed": "#001d31",
+              "inverse-surface": "#2d3133",
+              "surface-variant": "#e0e3e5",
+              "surface-container-lowest": "#ffffff",
+              "surface-container": "#eceef0",
+              "on-primary-fixed": "#131b2e",
+              "inverse-on-surface": "#eff1f3",
+              "on-secondary-fixed": "#0b1c30",
+              "on-tertiary-container": "#188ace",
+              "on-surface": "#191c1e",
+              "error": "#ba1a1a",
+              "on-error": "#ffffff",
+              "on-background": "#191c1e",
+              "on-tertiary-fixed-variant": "#004b73",
+              "inverse-primary": "#bec6e0",
+              "on-secondary-container": "#54647a",
+              "on-primary": "#ffffff",
+              "secondary-fixed": "#d3e4fe",
+              "secondary": "#505f76",
+              "on-surface-variant": "#45464d",
+              "error-container": "#ffdad6",
+              "primary-fixed": "#dae2fd",
+              "background": "#f7f9fb",
+              "surface-dim": "#d8dadc",
+              "surface-container-high": "#e6e8ea",
+              "primary-container": "#131b2e",
+              "tertiary": "#000000",
+              "on-secondary": "#ffffff",
+              "outline-variant": "#c6c6cd",
+              "primary": "#000000",
+              "primary-fixed-dim": "#bec6e0",
+              "surface": "#f7f9fb",
+              "on-primary-fixed-variant": "#3f465c",
+              "on-primary-container": "#7c839b",
+              "surface-container-low": "#f2f4f6",
+              "surface-tint": "#565e74",
+              "surface-container-highest": "#e0e3e5",
+              "tertiary-fixed": "#cce5ff",
+              "surface-bright": "#f7f9fb",
+              "outline": "#76777d",
+              "tertiary-fixed-dim": "#93ccff",
+              "on-error-container": "#93000a",
+              "secondary-container": "#d0e1fb",
+              "tertiary-container": "#001d31"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"],
+              "mono": ["JetBrains Mono"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f7f9fb; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-panel { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(20px); }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #eceef0; border-radius: 10px; }
+        .pdf-page { box-shadow: 0 4px 20px rgba(0,0,0,0.03); }
+        .redline-deleted { text-decoration: line-through; color: #ba1a1a; background-color: #ffdad6; }
+        .redline-added { color: #006a60; background-color: #b9f3e9; }
+    </style>
+</head>
+<body class="text-on-surface overflow-hidden">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl shadow-sm h-16 flex items-center justify-between px-8">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tighter text-slate-900 dark:text-slate-50">LexArchitect</span>
+<nav class="hidden md:flex items-center space-y-0 space-x-6">
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-700 font-sans antialiased text-body-lg transition-colors" href="#">Dashboard</a>
+<a class="text-slate-900 dark:text-white font-semibold border-b-2 border-slate-900 dark:border-white pb-1 font-sans antialiased text-body-lg" href="#">Dossier</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-700 font-sans antialiased text-body-lg transition-colors" href="#">Analytics</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="px-4 py-2 text-label-md font-semibold text-slate-900 hover:bg-slate-100/50 rounded-lg transition-colors active:scale-95 duration-200">Export</button>
+<button class="px-5 py-2 bg-primary text-on-primary rounded-lg font-semibold text-label-md hover:opacity-90 transition-opacity active:scale-95 duration-200">Share</button>
+<div class="h-8 w-[1px] bg-slate-100 mx-2"></div>
+<button class="p-2 hover:bg-slate-100/50 rounded-full transition-colors material-symbols-outlined text-slate-500">settings</button>
+<img alt="User profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-surface-container" data-alt="professional corporate headshot of a legal executive with a neutral background and soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDN-PMlpOQV7gAX46xd2LTnY8WNSmnC1oa_ujJVtQVOOOELnyswk79YgYXlVt6Pbc0UrvVqCq4zlGsxPIIeLCbEDevdbl_X_iUsLORB0ZOEidgiX49O5Hbl6kvSd9DS8Lwdbw_fahnTu32TMauY0MrT4qAX8Qn92f_8mmJB4uSHfRp6RzwYBeVlebfWMLBEnz6OGFxjL2eO5x2wDYIEcbr8buEkr2J8V1CogGOpRhmeJs6IGjhzY2XHBHFh6u4rwyZSF4f0WWSF8K8"/>
+</div>
+</header>
+<!-- SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-16 bg-slate-50 dark:bg-slate-950 flex flex-col p-4 space-y-2 border-r border-slate-200 dark:border-slate-800 z-40">
+<div class="mb-6 px-2 py-4">
+<div class="flex items-center gap-3 mb-1">
+<div class="w-8 h-8 bg-secondary-container rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container text-sm">description</span>
+</div>
+<h2 class="text-slate-900 dark:text-slate-50 font-bold text-sm truncate">Master Services Agreement</h2>
+</div>
+<p class="text-[10px] text-slate-500 font-medium tracking-widest uppercase ml-11">v2.4 - Draft</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg transition-transform duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined text-[20px]">article</span>
+<span class="font-sans text-label-md tracking-wider">Summary</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg transition-transform duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined text-[20px]">gavel</span>
+<span class="font-sans text-label-md tracking-wider">Risk Analysis</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 bg-white dark:bg-slate-900 text-slate-900 dark:text-white font-bold shadow-sm rounded-lg transition-transform duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined text-[20px]">edit_note</span>
+<span class="font-sans text-label-md tracking-wider">Redlines</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg transition-transform duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined text-[20px]">list_alt</span>
+<span class="font-sans text-label-md tracking-wider">Clauses</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg transition-transform duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined text-[20px]">history</span>
+<span class="font-sans text-label-md tracking-wider">History</span>
+</a>
+</nav>
+<div class="pt-4 border-t border-slate-200 dark:border-slate-800 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg" href="#">
+<span class="material-symbols-outlined text-[20px]">help_outline</span>
+<span class="font-sans text-label-md tracking-wider">Support</span>
+</a>
+<button class="w-full mt-4 py-3 bg-primary text-on-primary rounded-xl font-bold text-sm hover:opacity-90 active:scale-[0.98] transition-all">
+                Finalize Review
+            </button>
+</div>
+</aside>
+<!-- Main Content (PDF Viewer) -->
+<main class="ml-64 mr-[400px] mt-16 p-8 h-[calc(100vh-64px)] overflow-y-auto custom-scrollbar bg-surface">
+<div class="max-w-4xl mx-auto space-y-8">
+<!-- PDF Canvas Page -->
+<div class="pdf-page bg-white p-12 min-h-[1100px] rounded-sm relative border border-slate-100">
+<div class="flex justify-between items-start mb-12">
+<div class="space-y-1">
+<h1 class="text-2xl font-bold text-primary tracking-tight">MASTER SERVICES AGREEMENT</h1>
+<p class="text-xs text-slate-400 font-mono tracking-widest">CONFIDENTIAL • ARCHITECT-V2.4.1</p>
+</div>
+</div>
+<!-- Design preview (assets/interactive-redlining-screen.png) -->
+<div class="max-w-4xl mx-auto mt-8">
+  <img src="assets/interactive-redlining-screen.png" alt="Interactive Redlining preview" class="w-full rounded-lg shadow-md" loading="lazy"/>
+</div>
+<div class="text-right text-xs text-slate-400 font-mono">
+                        Page 4 of 28
+                    </div>
+</div>
+<div class="space-y-8 text-on-surface leading-relaxed text-sm">
+<section>
+<h3 class="font-bold mb-3 uppercase tracking-wider text-xs">Section 4. Limitation of Liability</h3>
+<p class="mb-4">
+                            4.1 Except for indemnity obligations under Section 9, 
+                            <span class="bg-error-container/40 border-b-2 border-error p-0.5 rounded-sm">in no event shall either party's total cumulative liability exceed the total amount paid by Customer to Provider in the twelve (12) month period immediately preceding the date of the claim.</span>
+</p>
+<p>
+                            4.2 Neither party shall be liable for any indirect, special, incidental, or consequential damages, including loss of profits, even if advised of the possibility of such damages.
+                        </p>
+</section>
+<section>
+<h3 class="font-bold mb-3 uppercase tracking-wider text-xs">Section 5. Data Privacy &amp; AI Compliance</h3>
+<p class="mb-4">
+                            5.1 Provider represents and warrants that all processing of Personal Data will comply with applicable Privacy Laws, including the GDPR and CCPA.
+                        </p>
+<p>
+                            5.2 <span class="bg-secondary-container/40 border-b-2 border-on-tertiary-container p-0.5 rounded-sm">Provider may use anonymized Customer Data to improve its AI models and general service offerings.</span> Customer acknowledges that such usage does not constitute a breach of confidentiality.
+                        </p>
+</section>
+<div class="pt-8 border-t border-slate-100 mt-20">
+<p class="italic text-slate-400 text-xs">
+                            [Remaining text intentionally omitted for architectural review purposes]
+                        </p>
+</div>
+</div>
+<!-- Floating Draft Counter Button -->
+<div class="fixed bottom-12 left-[calc(50%+128px-200px)] -translate-x-1/2">
+<button class="flex items-center gap-3 px-8 py-4 bg-primary text-on-primary rounded-full shadow-2xl hover:scale-105 active:scale-95 transition-all font-bold tracking-tight">
+<span class="material-symbols-outlined">auto_fix_high</span>
+                        Draft Counter-Proposal
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- AI Redlining Panel (Right Side) -->
+<aside class="fixed right-0 top-16 w-[400px] h-[calc(100vh-64px)] bg-surface-container-low border-l border-slate-200 flex flex-col z-40">
+<!-- Progress Tracker -->
+<div class="p-6 border-b border-slate-200 bg-white">
+<div class="flex justify-between items-center mb-3">
+<span class="text-xs font-bold text-slate-500 tracking-widest uppercase">Progress Tracker</span>
+<span class="text-sm font-bold text-primary">64%</span>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[64%]"></div>
+</div>
+</div>
+<!-- AI Redlining Header -->
+<div class="px-6 py-4 flex items-center justify-between">
+<h2 class="text-sm font-bold text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-on-tertiary-container">analytics</span>
+                AI Redlining Panel
+            </h2>
+<div class="flex gap-1">
+<span class="bg-error-container text-on-error-container px-2 py-1 rounded text-[10px] font-bold">1 HIGH RISK</span>
+<span class="bg-secondary-container text-on-secondary-container px-2 py-1 rounded text-[10px] font-bold">2 SUGGESTIONS</span>
+</div>
+</div>
+<!-- Suggestion Cards List -->
+<div class="flex-1 overflow-y-auto custom-scrollbar p-6 space-y-6">
+<!-- High Risk Suggestion -->
+<div class="glass-panel rounded-xl shadow-sm overflow-hidden border border-white">
+<div class="p-4 bg-error-container/10 flex items-start gap-3">
+<span class="material-symbols-outlined text-error mt-1">warning</span>
+<div>
+<h4 class="text-[11px] font-bold text-error uppercase tracking-wider">High Risk: Section 4.1</h4>
+<p class="text-xs text-on-surface-variant mt-1 leading-relaxed">The liability cap is unusually low for this industry standard.</p>
+</div>
+</div>
+<div class="p-4 space-y-4">
+<div>
+<label class="label-md block text-[10px] font-bold text-slate-400 mb-2">ORIGINAL TEXT</label>
+<div class="p-3 bg-surface-container rounded-lg text-xs font-mono text-slate-500 leading-normal">
+                            ...liability exceed the total amount paid by Customer to Provider in the twelve (12) month period...
+                        </div>
+</div>
+<div>
+<label class="label-md block text-[10px] font-bold text-slate-400 mb-2">AI RECOMMENDED REDLINE</label>
+<div class="p-3 bg-surface-container-lowest border border-slate-100 rounded-lg text-xs leading-normal">
+                            ...liability exceed <span class="redline-deleted">the total amount paid by Customer to Provider in the twelve (12) month period</span> <span class="redline-added">three times (3x) the total Fees payable under this Agreement</span>...
+                        </div>
+</div>
+<div>
+<label class="label-md block text-[10px] font-bold text-slate-400 mb-2">ARCHITECTURAL RATIONALE</label>
+<p class="text-[11px] text-on-surface leading-relaxed italic">
+                            A 1x cap on historical fees provides insufficient protection against potential data breach costs. A 3x total contract value cap aligns with market standards for MSA enterprise deals.
+                        </p>
+</div>
+<div class="flex gap-2 pt-2">
+<button class="flex-1 py-2 bg-primary text-on-primary text-[11px] font-bold rounded-lg hover:opacity-90 active:scale-95 transition-all">Accept Change</button>
+<button class="flex-1 py-2 border border-outline text-[11px] font-bold rounded-lg hover:bg-surface-container active:scale-95 transition-all">Decline</button>
+</div>
+</div>
+</div>
+<!-- Soft Suggestion -->
+<div class="glass-panel rounded-xl shadow-sm overflow-hidden border border-white">
+<div class="p-4 bg-secondary-container/10 flex items-start gap-3">
+<span class="material-symbols-outlined text-on-tertiary-container mt-1">lightbulb</span>
+<div>
+<h4 class="text-[11px] font-bold text-on-tertiary-container uppercase tracking-wider">Suggestion: Section 5.2</h4>
+<p class="text-xs text-on-surface-variant mt-1 leading-relaxed">Clarify data anonymization standards.</p>
+</div>
+</div>
+<div class="p-4 space-y-4">
+<div>
+<label class="label-md block text-[10px] font-bold text-slate-400 mb-2">AI RECOMMENDED REDLINE</label>
+<div class="p-3 bg-surface-container-lowest border border-slate-100 rounded-lg text-xs leading-normal">
+                            Provider may use <span class="redline-added">Aggregated Statistics and</span> anonymized Customer Data to improve its AI models...
+                        </div>
+</div>
+<div class="flex gap-2 pt-2">
+<button class="flex-1 py-2 bg-primary text-on-primary text-[11px] font-bold rounded-lg hover:opacity-90 active:scale-95 transition-all">Accept Change</button>
+<button class="flex-1 py-2 border border-outline text-[11px] font-bold rounded-lg hover:bg-surface-container active:scale-95 transition-all">Decline</button>
+</div>
+</div>
+</div>
+</div>
+</aside>
+</body></html>

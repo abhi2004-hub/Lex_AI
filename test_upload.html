@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Upload</title>
+</head>
+<body>
+    <h1>Test File Upload</h1>
+    <input type="file" id="fileInput" accept=".txt,.pdf,.docx">
+    <button onclick="uploadFile()">Upload</button>
+    <div id="result"></div>
+    
+    <script>
+        async function uploadFile() {
+            const fileInput = document.getElementById('fileInput');
+            const result = document.getElementById('result');
+            
+            if (fileInput.files.length === 0) {
+                result.innerHTML = 'Please select a file';
+                return;
+            }
+            
+            const formData = new FormData();
+            formData.append('file', fileInput.files[0]);
+            formData.append('analysis_type', 'detailed');
+            formData.append('language', 'en');
+            
+            result.innerHTML = 'Uploading...';
+            
+            try {
+                const response = await fetch('http://localhost:5000/api/documents/upload', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    result.innerHTML = `
+                        <h2>✅ Success!</h2>
+                        <p>Document ID: ${data.document.id}</p>
+                        <p>Clauses: ${data.analysis.total_clauses}</p>
+                        <p>Processing time: ${data.processing_time}s</p>
+                    `;
+                } else {
+                    result.innerHTML = `❌ Error: ${data.error}`;
+                }
+            } catch (error) {
+                result.innerHTML = `❌ Upload failed: ${error.message}`;
+                console.error('Upload error:', error);
+            }
+        }
+    </script>
+</body>
+</html>

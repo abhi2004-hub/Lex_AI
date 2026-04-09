@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "inverse-on-surface": "#eff1f3",
+              "on-secondary": "#ffffff",
+              "secondary": "#505f76",
+              "tertiary-fixed": "#cce5ff",
+              "surface-tint": "#565e74",
+              "surface-container-high": "#e6e8ea",
+              "on-primary-container": "#7c839b",
+              "tertiary": "#000000",
+              "background": "#f7f9fb",
+              "primary-fixed": "#dae2fd",
+              "primary-container": "#131b2e",
+              "on-tertiary-container": "#188ace",
+              "on-secondary-container": "#54647a",
+              "on-secondary-fixed": "#0b1c30",
+              "secondary-fixed": "#d3e4fe",
+              "primary-fixed-dim": "#bec6e0",
+              "surface-container-highest": "#e0e3e5",
+              "on-error-container": "#93000a",
+              "secondary-container": "#d0e1fb",
+              "error": "#ba1a1a",
+              "inverse-primary": "#bec6e0",
+              "surface-container": "#eceef0",
+              "on-secondary-fixed-variant": "#38485d",
+              "on-error": "#ffffff",
+              "surface-bright": "#f7f9fb",
+              "surface-dim": "#d8dadc",
+              "on-tertiary-fixed-variant": "#004b73",
+              "surface-variant": "#e0e3e5",
+              "tertiary-container": "#001d31",
+              "outline": "#76777d",
+              "on-primary-fixed-variant": "#3f465c",
+              "error-container": "#ffdad6",
+              "on-surface-variant": "#45464d",
+              "on-primary": "#ffffff",
+              "on-background": "#191c1e",
+              "inverse-surface": "#2d3133",
+              "tertiary-fixed-dim": "#93ccff",
+              "primary": "#000000",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary-fixed": "#001d31",
+              "on-primary-fixed": "#131b2e",
+              "surface": "#f7f9fb",
+              "on-surface": "#191c1e",
+              "on-tertiary": "#ffffff",
+              "secondary-fixed-dim": "#b7c8e1",
+              "outline-variant": "#c6c6cd",
+              "surface-container-low": "#f2f4f6"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"],
+              "mono": ["JetBrains Mono"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-xl flex justify-between items-center px-8 py-4 w-full shadow-2xl shadow-slate-900/5">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tighter text-slate-900">LexArchitect</span>
+<div class="hidden md:flex gap-6 items-center">
+<a class="text-slate-500 hover:text-slate-700 transition-colors font-sans tracking-tight" href="#">Dossiers</a>
+<a class="text-slate-500 hover:text-slate-700 transition-colors font-sans tracking-tight" href="#">Risk Analytics</a>
+<a class="text-slate-900 border-b-2 border-slate-900 pb-1 font-sans tracking-tight" href="#">Strategy</a>
+<a class="text-slate-500 hover:text-slate-700 transition-colors font-sans tracking-tight" href="#">Archives</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-slate-50 rounded-full transition-all">
+<span class="material-symbols-outlined text-slate-900" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 hover:bg-slate-50 rounded-full transition-all">
+<span class="material-symbols-outlined text-slate-900" data-icon="settings">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-slate-200 overflow-hidden">
+<img alt="User profile" data-alt="professional portrait of a senior legal partner in a minimalist architectural office setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQyP09xphAwNG79lV3ajhzwi2BDHnEUfvPRm6MJjqOJNUGIQRp7OClsBZN6-Gp_1f5KWsiMQtNncwLrS2I64MC4xKBSsqGfKDHLknzj94-s4GpPxOzP9XS5PPFtP9QT8vsnGp9FxPFXhE3tQJ4h7KWB-IscApjM3clYmvg1_cvnL2TomubtuEWietPOXWJ-7TEQGfSFj0r9lJb7F_uOyu5PQ9TJC9itJWI05TJrJ3V-KyePQ5zmx_hFjxoJ0BIgBpdAFS8l-ODH1M"/>
+</div>
+</div>
+</nav>
+<!-- SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-slate-50 flex flex-col p-4 gap-2 pt-24 hidden lg:flex">
+<div class="px-2 mb-6">
+<h2 class="text-lg font-bold tracking-tight text-slate-900">Project Alpha</h2>
+<p class="text-xs text-slate-500 font-medium uppercase tracking-wider">Risk Mitigation</p>
+</div>
+<nav class="flex-1 flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:bg-slate-200/50 rounded-lg transition-all text-sm font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                Overview
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:bg-slate-200/50 rounded-lg transition-all text-sm font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="gavel">gavel</span>
+                Resolution Hub
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:bg-slate-200/50 rounded-lg transition-all text-sm font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+                Task Manager
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 bg-white text-slate-900 rounded-lg shadow-sm text-sm font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="trending_down">trending_down</span>
+                Projections
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:bg-slate-200/50 rounded-lg transition-all text-sm font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+                Collaborators
+            </a>
+</nav>
+<button class="mt-4 bg-primary text-on-primary py-3 px-4 rounded-lg font-semibold text-sm transition-transform active:scale-95">
+            Generate Report
+        </button>
+<div class="mt-auto flex flex-col gap-1 pt-4 border-t border-slate-200">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:bg-slate-200/50 rounded-lg text-sm font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+                Help Center
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:bg-slate-200/50 rounded-lg text-sm font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+                Log Out
+            </a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="lg:ml-64 pt-24 px-8 pb-12 bg-surface min-h-screen">
+<div class="max-w-7xl mx-auto">
+<!-- Editorial Header -->
+<header class="mb-12">
+<span class="label-md text-on-surface-variant tracking-widest text-[10px] font-bold uppercase">Mitigation Strategy v4.2</span>
+<h1 class="text-6xl font-bold tracking-tighter text-primary mt-2 mb-4 leading-none">Architecting <br/>Risk Resolution.</h1>
+<p class="text-xl text-on-surface-variant max-w-2xl leading-relaxed">
+                    Systemic restructuring of the Master Service Agreement for Project Alpha. Targeted focus on liability distribution and governance frameworks.
+                </p>
+</header>
+<!-- Preview screenshot (assets/mitigation-screen.png) -->
+<div class="mb-8">
+  <img src="assets/mitigation-screen.png" alt="Mitigation strategy preview" class="w-full rounded-xl shadow-md" loading="lazy"/>
+</div>
+<div class="grid grid-cols-12 gap-8">
+<!-- Left Column: Strategy & Timeline -->
+<div class="col-span-12 lg:col-span-8 flex flex-col gap-8">
+<!-- Resolution Roadmap -->
+<section class="bg-surface-container-lowest rounded-2xl p-8 shadow-sm">
+<div class="flex justify-between items-end mb-10">
+<div>
+<h3 class="text-2xl font-semibold tracking-tight">Resolution Roadmap</h3>
+<p class="text-on-surface-variant text-sm">Sequential mitigation milestones</p>
+</div>
+<span class="text-xs font-mono bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full">EST. 14 DAYS</span>
+</div>
+<div class="relative flex flex-col gap-10">
+<!-- Timeline Line -->
+<div class="absolute left-6 top-2 bottom-2 w-px bg-surface-container-high"></div>
+<!-- Step 1 -->
+<div class="relative flex gap-6 group">
+<div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center z-10 text-on-primary shrink-0 transition-transform group-hover:scale-110">
+<span class="material-symbols-outlined" data-icon="rule">rule</span>
+</div>
+<div class="flex-1 pb-4">
+<div class="flex justify-between items-start mb-1">
+<h4 class="font-bold text-lg">Update Liability Cap</h4>
+<span class="text-[10px] font-bold text-on-tertiary-container bg-tertiary-fixed px-2 py-0.5 rounded">PRIORITY 1</span>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-3">Aligning total liability with 12-month trailing revenue to normalize outlier risks.</p>
+<div class="flex items-center gap-4">
+<div class="flex -space-x-2">
+<div class="w-6 h-6 rounded-full border-2 border-white bg-slate-200 overflow-hidden">
+<img alt="Counsel" data-alt="legal professional headshot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAY_CebD5WPuhuLu7lAAgQNsj24k99vui_emxr_DKDs3hGxRhg9p_xEZir2moUda209lGCA_7RhAGYIIz3e7359tIk1DjazcqkA34mTxM7C8T5TPTP2Q4CIbLk9saOxaYBeuwqma_y3KL7ZzP9M5ChsmDIoErDyhc7x0KC0lCnt5TMl80CfrpxK8Rum4tVUWJnjzzD6c25WykoJJhw0fc9irfarN_jyiR_wFZryZGFeyv9EQk0ZrVgaMRqjBvWxjVoI4NI2cfZAyO0"/>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-white bg-slate-300 overflow-hidden">
+<img alt="AI Engine" data-alt="abstract neural network visualization" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhiO54QBVg6twQ97-4wevGvS3Q1UvbRE13ML27EPP7AwL8bVjXsuOpcCE1juTtXV3I8koQMz-Xck_CE1110_KjAasfPjvp3EiKEcGtl441-Ls6ACnmmYHBgu8EKG7mNHnHqkZq4j67tpSGUV-IDBZZj2nQk_eP8lS7bDQyXdZTJZ_pmlidx3r381M4ffwlEXBCY7euygbYGY_H2d0u-rbsvruB9EHNITYuoJCxzemwRKzRzPl8UhDYkGBMZbGNd6FNLG233IV6-fs"/>
+</div>
+</div>
+<span class="text-xs text-on-surface-variant">Assigned to: J. Sterling + LexAI</span>
+</div>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="relative flex gap-6 group">
+<div class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center z-10 text-slate-400 shrink-0 transition-transform group-hover:scale-110">
+<span class="material-symbols-outlined" data-icon="edit_note">edit_note</span>
+</div>
+<div class="flex-1 pb-4">
+<h4 class="font-bold text-lg text-slate-900">Refine Termination Clause</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-3">Implementing a 30-day cure period for non-material breaches to prevent abrupt dissolution.</p>
+<div class="h-1.5 w-32 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full w-1/3 bg-primary rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="relative flex gap-6 group opacity-60">
+<div class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center z-10 text-slate-400 shrink-0">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+</div>
+<div class="flex-1">
+<h4 class="font-bold text-lg text-slate-900">Standard Compliance Update</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">Cross-referencing latest GDPR/CCPA amendments for Article 28 alignment.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Action Item Hub -->
+<section class="bg-surface-container-low rounded-2xl overflow-hidden">
+<div class="p-8 pb-4">
+<h3 class="text-2xl font-semibold tracking-tight">Action Item Hub</h3>
+<p class="text-on-surface-variant text-sm">Targeted redlines and architectural shifts</p>
+</div>
+<div class="divide-y divide-surface-container-high/50">
+<!-- Item 1 -->
+<div class="p-6 hover:bg-white transition-colors cursor-pointer group">
+<div class="flex items-start justify-between gap-4">
+<div class="flex gap-4">
+<div class="mt-1">
+<span class="material-symbols-outlined text-error" data-icon="warning">warning</span>
+</div>
+<div>
+<span class="text-[10px] font-bold text-error uppercase tracking-widest">Critical Structural Change</span>
+<h5 class="font-semibold text-primary mt-0.5">Section 12.4: Indemnification Scope</h5>
+<p class="text-sm text-on-surface-variant mt-1 leading-relaxed">Remove "consequential damages" from the indemnity obligation to limit secondary exposure.</p>
+</div>
+</div>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity bg-primary text-on-primary px-3 py-1.5 rounded-lg text-xs font-semibold">Review Redline</button>
+</div>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="p-6 hover:bg-white transition-colors cursor-pointer group">
+<div class="flex items-start justify-between gap-4">
+<div class="flex gap-4">
+<div class="mt-1">
+<span class="material-symbols-outlined text-on-tertiary-container" data-icon="info">info</span>
+</div>
+<div>
+<span class="text-[10px] font-bold text-on-secondary-container uppercase tracking-widest">Standard Compliance</span>
+<h5 class="font-semibold text-primary mt-0.5">Section 4.1: Data Retention Periods</h5>
+<p class="text-sm text-on-surface-variant mt-1 leading-relaxed">Standardize retention to 7 years post-termination for tax audit readiness.</p>
+</div>
+</div>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity bg-primary text-on-primary px-3 py-1.5 rounded-lg text-xs font-semibold">Review Redline</button>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Analytics & Collaboration -->
+<div class="col-span-12 lg:col-span-4 flex flex-col gap-8">
+<!-- Projected Risk Delta -->
+<section class="bg-primary-container text-white rounded-2xl p-8 overflow-hidden relative">
+<!-- Decorative background texture -->
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<svg height="100%" preserveaspectratio="none" viewbox="0 0 100 100" width="100%">
+<path d="M0 100 L100 0 V100 H0 Z" fill="white"></path>
+</svg>
+</div>
+<div class="relative z-10">
+<h3 class="text-xl font-semibold tracking-tight mb-8">Projected Risk Delta</h3>
+<div class="flex flex-col gap-6">
+<div>
+<div class="flex justify-between text-xs font-bold uppercase tracking-widest mb-2 opacity-70">
+<span>Current Risk Profile</span>
+<span>84%</span>
+</div>
+<div class="h-3 w-full bg-white/10 rounded-full overflow-hidden">
+<div class="h-full w-[84%] bg-error rounded-full shadow-[0_0_15px_rgba(186,26,26,0.5)]"></div>
+</div>
+</div>
+<div class="flex justify-center my-2">
+<span class="material-symbols-outlined text-on-tertiary-container" data-icon="keyboard_double_arrow_down">keyboard_double_arrow_down</span>
+</div>
+<div>
+<div class="flex justify-between text-xs font-bold uppercase tracking-widest mb-2 opacity-70">
+<span>Post-Mitigation</span>
+<span>18%</span>
+</div>
+<div class="h-3 w-full bg-white/10 rounded-full overflow-hidden">
+<div class="h-full w-[18%] bg-on-tertiary-container rounded-full shadow-[0_0_15px_rgba(24,138,206,0.5)]"></div>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-8 border-t border-white/10">
+<p class="text-xs text-slate-400 font-mono">MITIGATION EFFICIENCY</p>
+<p class="text-4xl font-bold tracking-tighter mt-1">+66.4<span class="text-xl">%</span></p>
+<p class="text-xs text-slate-400 mt-2">Overall exposure reduction calculated via LexAI Predictor engine.</p>
+</div>
+</div>
+</section>
+<!-- Collaborative Workflow -->
+<section class="bg-surface-container-lowest rounded-2xl p-6 shadow-sm">
+<h4 class="text-sm font-bold uppercase tracking-widest mb-4">Workflow &amp; Notes</h4>
+<div class="flex flex-col gap-4">
+<!-- Comment -->
+<div class="flex gap-3">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0">
+<span class="text-[10px] text-on-primary font-bold">AS</span>
+</div>
+<div class="bg-surface-container-low rounded-xl p-3 flex-1">
+<p class="text-xs text-on-surface leading-normal italic">"Ensuring we have secondary sign-off from the CFO on the new liability caps by EOD."</p>
+<span class="text-[9px] text-on-surface-variant mt-2 block font-mono">ALEX STERLING · 2H AGO</span>
+</div>
+</div>
+<div class="border-t border-surface-container-high pt-4">
+<label class="label-md text-[10px] text-on-surface-variant mb-2 block">Quick Note</label>
+<textarea class="w-full bg-surface-container-low border-none rounded-lg text-sm focus:ring-1 focus:ring-primary/20 placeholder:text-on-surface-variant/50" placeholder="Type an architectural note..." rows="2"></textarea>
+<button class="mt-2 w-full text-xs font-bold text-primary bg-primary-fixed hover:bg-primary-fixed-dim transition-colors py-2 rounded-lg">POST NOTE</button>
+</div>
+</div>
+</section>
+<!-- Precedent Analysis -->
+<section class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="analytics">analytics</span>
+<h4 class="text-sm font-bold uppercase tracking-widest">Precedent Analysis</h4>
+</div>
+<p class="text-xs text-on-surface-variant leading-relaxed mb-4">
+                            Proposed mitigations align with <span class="text-primary font-semibold">82%</span> of similar Tech MSA precedents in the Fortune 500 space (2023-2024).
+                        </p>
+<div class="flex flex-wrap gap-2">
+<span class="px-2 py-1 bg-surface-container-low rounded text-[9px] font-bold text-on-surface-variant">DELAWARE CASE LAW</span>
+<span class="px-2 py-1 bg-surface-container-low rounded text-[9px] font-bold text-on-surface-variant">SaaS BENCHMARK</span>
+</div>
+</section>
+</div>
+</div>
+</div>
+</main>
+<!-- FAB Suppression: On Strategy/Details screens, we prioritize focus -->
+</body></html>

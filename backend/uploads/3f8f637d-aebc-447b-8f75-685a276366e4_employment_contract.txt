@@ -1,0 +1,62 @@
+EMPLOYMENT AGREEMENT
+
+This Employment Agreement ("Agreement") is made and entered into as of January 1, 2024, by and between:
+
+TECH INNOVATIONS PVT. LTD., a company incorporated under the Companies Act, 2013 ("Employer")
+AND
+RAHUL SHARMA, an individual ("Employee")
+
+1. POSITION AND DUTIES
+1.1. Employer hereby employs Employee as Senior Software Engineer.
+1.2. Employee shall perform such duties as may be assigned by Employer, including but not limited to software development, code review, and technical leadership.
+1.3. Employee shall report directly to the Chief Technology Officer.
+
+2. COMPENSATION
+2.1. Base Salary: Employer shall pay Employee a base salary of ₹24,00,000 (Rupees Twenty-Four Lakhs) per annum, payable in equal monthly installments.
+2.2. Bonus: Employee shall be eligible for an annual performance bonus of up to 20% of base salary, subject to company performance and individual achievement.
+2.3. Benefits: Employee shall be entitled to participate in Employer's standard benefits package, including health insurance, Employees' Provident Fund (EPF), and Gratuity as per the Payment of Gratuity Act, 1972.
+
+3. TERM OF EMPLOYMENT
+3.1. This Agreement shall commence on January 15, 2024.
+3.2. Either party may terminate this employment relationship at any time, with or without cause, by providing 90 days written notice or basic salary in lieu to the other party.
+
+4. CONFIDENTIALITY
+4.1. Employee acknowledges that during employment, Employee will have access to confidential information, including trade secrets, customer lists, and proprietary technology.
+4.2. Employee agrees to maintain the confidentiality of all such information both during and after employment.
+4.3. This confidentiality obligation shall survive the termination of employment for a period of 5 years.
+
+5. INTELLECTUAL PROPERTY
+5.1. All inventions, discoveries, and improvements created by Employee during employment shall be the exclusive property of Employer, as per the Copyright Act, 1957.
+5.2. Employee agrees to execute any documents necessary to perfect Employer's rights in such intellectual property.
+
+6. NON-COMPETE
+6.1. During employment and for a period of 12 months thereafter, Employee shall not work for any direct competitor of Employer within the territory of India.
+6.2. This restriction applies to companies engaged in software development, artificial intelligence, or cloud computing services.
+
+7. NON-SOLICITATION
+7.1. Employee agrees not to solicit or hire any of Employer's employees for a period of 2 years after termination.
+7.2. Employee shall not solicit any of Employer's customers or clients for a period of 1 year after termination.
+
+8. LIABILITY LIMITATION
+8.1. Employer's total liability under this Agreement shall not exceed the amount of compensation paid to Employee in the preceding 12 months.
+8.2. In no event shall either party be liable for consequential or punitive damages.
+
+9. DISPUTE RESOLUTION
+9.1. Any disputes arising under this Agreement shall be resolved through binding arbitration in accordance with the Arbitration and Conciliation Act, 1996.
+9.2. The arbitration shall be conducted in Bengaluru, Karnataka, by a sole arbitrator mutually appointed, and the prevailing party shall be entitled to reasonable attorney fees.
+
+10. GOVERNING LAW
+10.1. This Agreement shall be governed by and construed in accordance with the laws of India.
+10.2. Any legal action shall be brought in the competent courts located in Bengaluru, Karnataka.
+
+11. ENTIRE AGREEMENT
+11.1. This Agreement constitutes the entire understanding between the parties and supersedes all prior agreements, whether written or oral.
+11.2. This Agreement may only be amended by a written instrument signed by both parties.
+
+IN WITNESS WHEREOF, the parties have executed this Agreement as of the date first written above.
+
+_________________________          _________________________
+TECH INNOVATIONS PVT. LTD.         RAHUL SHARMA
+By: Priya Patel, Director          Employee
+
+Date: January 1, 2024              Date: January 1, 2024

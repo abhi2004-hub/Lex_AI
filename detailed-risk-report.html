@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LexAI | Risk Analysis Report</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary-fixed-dim": "#93ccff",
+                        "secondary": "#505f76",
+                        "on-secondary-container": "#54647a",
+                        "primary": "#000000",
+                        "on-secondary-fixed": "#0b1c30",
+                        "secondary-fixed": "#d3e4fe",
+                        "inverse-surface": "#2d3133",
+                        "on-secondary-fixed-variant": "#38485d",
+                        "error-container": "#ffdad6",
+                        "surface-container-high": "#e6e8ea",
+                        "on-primary-fixed": "#131b2e",
+                        "on-surface": "#191c1e",
+                        "primary-fixed": "#dae2fd",
+                        "on-primary-container": "#7c839b",
+                        "on-tertiary-container": "#188ace",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "surface-container-low": "#f2f4f6",
+                        "on-tertiary-fixed-variant": "#004b73",
+                        "surface-variant": "#e0e3e5",
+                        "outline-variant": "#c6c6cd",
+                        "tertiary": "#000000",
+                        "tertiary-container": "#001d31",
+                        "surface": "#f7f9fb",
+                        "on-tertiary": "#ffffff",
+                        "secondary-container": "#d0e1fb",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#d8dadc",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-tint": "#565e74",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed": "#cce5ff",
+                        "surface-container-highest": "#e0e3e5",
+                        "inverse-primary": "#bec6e0",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "primary-container": "#131b2e",
+                        "on-surface-variant": "#45464d",
+                        "surface-bright": "#f7f9fb",
+                        "on-primary": "#ffffff",
+                        "on-background": "#191c1e",
+                        "error": "#ba1a1a",
+                        "on-error": "#ffffff",
+                        "primary-fixed-dim": "#bec6e0",
+                        "outline": "#76777d",
+                        "on-tertiary-fixed": "#001d31",
+                        "surface-container": "#eceef0",
+                        "background": "#f7f9fb"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"],
+                        "mono": ["JetBrains Mono"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+        }
+        .risk-gauge-gradient {
+            background: conic-gradient(from 180deg at 50% 50%, #000000 0deg, #565e74 260deg, #f2f4f6 260.1deg);
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased selection:bg-primary selection:text-white">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-white/70 dark:bg-slate-950/70 backdrop-blur-xl shadow-[0_24px_48px_-12px_rgba(15,23,42,0.08)]">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-7xl mx-auto">
+<div class="text-xl font-bold tracking-tighter text-slate-900 dark:text-slate-50">LexAI</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors font-sans tracking-tight text-sm font-medium" href="#">Solutions</a>
+<a class="text-slate-900 dark:text-white font-semibold border-b-2 border-slate-900 dark:border-white pb-1 font-sans tracking-tight text-sm" href="#">Intelligence</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors font-sans tracking-tight text-sm font-medium" href="#">Security</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors font-sans tracking-tight text-sm font-medium" href="#">Enterprise</a>
+</div>
+<div class="flex items-center space-x-4">
+<button class="text-slate-900 dark:text-slate-50 font-sans tracking-tight text-sm font-medium hover:opacity-80 transition-all duration-300">Sign In</button>
+<button class="bg-primary text-on-primary px-5 py-2 rounded-lg font-sans tracking-tight text-sm font-medium scale-95 active:scale-90 transition-transform">Get Started</button>
+</div>
+</div>
+</nav>
+<main class="pt-24 pb-20 max-w-7xl mx-auto px-8">
+<!-- Document Meta Header -->
+<header class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div class="space-y-2">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">description</span>
+<h1 class="text-4xl font-bold tracking-tighter text-primary">MSA_Review_v2.pdf</h1>
+</div>
+<div class="flex flex-wrap items-center gap-6 text-sm">
+<div class="flex items-center gap-2">
+<span class="label-md text-on-surface-variant font-semibold tracking-widest uppercase text-xs">Date:</span>
+<span class="font-medium">Oct 24, 2024</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="label-md text-on-surface-variant font-semibold tracking-widest uppercase text-xs">Type:</span>
+<span class="font-medium">Service Agreement</span>
+</div>
+<div class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+                        RISK ASSESSMENT COMPLETE
+                    </div>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="bg-surface-container-high px-6 py-3 rounded-lg text-sm font-semibold flex items-center gap-2 hover:opacity-80 transition-all">
+<span class="material-symbols-outlined text-lg">share</span> Share with Legal
+                </button>
+<button class="bg-primary text-on-primary px-6 py-3 rounded-lg text-sm font-semibold flex items-center gap-2 scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-lg">picture_as_pdf</span> Export PDF Report
+                </button>
+</div>
+</header>
+<!-- Inline preview (assets/detailed-risk-screen.png) -->
+<div class="mb-8 max-w-4xl mx-auto">
+    <img src="assets/detailed-risk-screen.png" alt="Detailed risk report preview" class="w-full rounded-lg shadow-md" loading="lazy"/>
+</div>
+<!-- Top Section: Risk Profile & Explainability -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
+<!-- Aggregated Risk Profile (Circular Gauge) -->
+<div class="lg:col-span-5 bg-surface-container-lowest rounded-xl p-10 flex flex-col items-center justify-center relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-50"></div>
+<h2 class="label-md text-on-surface-variant font-semibold tracking-widest uppercase text-xs mb-10 text-center w-full">Aggregated Risk Profile</h2>
+<div class="relative w-64 h-64 flex items-center justify-center">
+<!-- Gauge Background -->
+<div class="absolute inset-0 rounded-full border-[16px] border-surface-container-low"></div>
+<!-- Gauge Value -->
+<div class="absolute inset-0 rounded-full border-[16px] border-primary border-r-transparent border-b-transparent rotate-45"></div>
+<div class="text-center z-10">
+<span class="text-7xl font-bold tracking-tighter">74</span>
+<span class="text-2xl text-on-surface-variant font-medium">/100</span>
+<p class="text-xs font-bold tracking-widest uppercase mt-1 text-on-surface-variant">Risk Index</p>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-6 mt-12 w-full">
+<div class="text-center">
+<p class="text-2xl font-bold">82%</p>
+<p class="text-[10px] font-bold tracking-widest uppercase text-on-surface-variant mt-1">Legal Exposure</p>
+</div>
+<div class="text-center">
+<p class="text-2xl font-bold">65%</p>
+<p class="text-[10px] font-bold tracking-widest uppercase text-on-surface-variant mt-1">Financial Impact</p>
+</div>
+<div class="text-center">
+<p class="text-2xl font-bold">75%</p>
+<p class="text-[10px] font-bold tracking-widest uppercase text-on-surface-variant mt-1">Operational Friction</p>
+</div>
+</div>
+</div>
+<!-- Explainability Panel (SHAP/LIME Style) -->
+<div class="lg:col-span-7 bg-surface-container-lowest rounded-xl p-8 flex flex-col">
+<div class="flex justify-between items-start mb-8">
+<div>
+<h2 class="label-md text-on-surface-variant font-semibold tracking-widest uppercase text-xs">Risk Drivers</h2>
+<p class="text-sm text-on-surface-variant mt-1">Influence of specific legal terms on total risk score</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">info</span>
+</div>
+<div class="space-y-6 flex-grow flex flex-col justify-center">
+<!-- Positive Contribution (Reduces Risk) -->
+<div class="space-y-3">
+<div class="flex justify-between items-end text-xs font-bold tracking-wider uppercase text-on-tertiary-fixed-variant">
+<span>Negative Influence (Protective)</span>
+<span>-12.4</span>
+</div>
+<div class="h-10 flex items-center">
+<div class="w-1/3 h-full flex flex-col items-end gap-1 px-2 border-r-2 border-surface-container-high">
+<div class="h-2 bg-tertiary-fixed-dim rounded-full w-[80%]"></div>
+<span class="text-[9px] font-mono">termination_clause</span>
+</div>
+<div class="w-1/4 h-full flex flex-col items-end gap-1 px-2">
+<div class="h-2 bg-tertiary-fixed-dim rounded-full w-[40%]"></div>
+<span class="text-[9px] font-mono">jurisdiction</span>
+</div>
+</div>
+</div>
+<!-- Negative Contribution (Increases Risk) -->
+<div class="space-y-3">
+<div class="flex justify-between items-end text-xs font-bold tracking-wider uppercase text-error">
+<span>Positive Influence (Risky)</span>
+<span>+48.2</span>
+</div>
+<div class="h-16 flex items-center">
+<div class="w-1/3 h-full border-r-2 border-surface-container-high"></div>
+<div class="flex flex-grow items-start h-full pt-1">
+<div class="flex flex-col gap-1 px-2 w-1/2">
+<div class="h-2 bg-error rounded-full w-full"></div>
+<span class="text-[9px] font-mono">indemnity_uncapped</span>
+</div>
+<div class="flex flex-col gap-1 px-2 w-1/3">
+<div class="h-2 bg-error/60 rounded-full w-full"></div>
+<span class="text-[9px] font-mono">gross_negligence</span>
+</div>
+<div class="flex flex-col gap-1 px-2 w-1/4">
+<div class="h-2 bg-error/30 rounded-full w-full"></div>
+<span class="text-[9px] font-mono">indirect_damages</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-surface-container-low flex items-center gap-4">
+<img alt="" class="w-8 h-8 rounded-full grayscale" data-alt="professional legal analyst profile headshot in grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAegRjX6MbMH2ifIyC1V2YA5H-sY1wBNIMC5D0ANQQeLRbeeAjLTIc5yjBpTBpWeEFXbDA971_YGOn-VTsrVM-SKeHWlCSa9DMk-Fzcjb6n_FQPBkiMkiRyjIxSTGrJ_r9h3FISUHMRTigz4OvaJpp_ozXmt5E9SoiqnCfY2M1-1ASC5bjnAfSXK4YvspD0Qz_GJ3dIOJ08rPpuqfpYQvZQqg2_2FvPmoMF0BDH7bTiR0UGaMCNswID7fTEGUY_4h0yLcYZP-uns"/>
+<p class="text-xs text-on-surface-variant leading-relaxed italic">"The heavy weighting on uncapped indemnity and vague 'gross negligence' definitions are the primary drivers for this high score. Immediate redlining recommended."</p>
+</div>
+</div>
+</section>
+<!-- Middle Section: Clause Audit & Benchmarking -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Granular Clause Audit -->
+<div class="lg:col-span-8 space-y-6">
+<h3 class="text-xl font-bold tracking-tight mb-4">Granular Clause Audit</h3>
+<!-- Clause Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-8 border-l-4 border-error shadow-sm">
+<div class="flex justify-between items-start mb-6">
+<div>
+<span class="text-[10px] font-bold tracking-widest uppercase text-on-surface-variant">Section 12.1</span>
+<h4 class="text-lg font-bold">Indemnification</h4>
+</div>
+<div class="flex flex-col items-end">
+<span class="text-[10px] font-bold tracking-widest uppercase text-error mb-1">Architectural Deviation</span>
+<div class="flex gap-1">
+<div class="h-1.5 w-6 bg-error rounded-full"></div>
+<div class="h-1.5 w-6 bg-error rounded-full"></div>
+<div class="h-1.5 w-6 bg-error rounded-full"></div>
+<div class="h-1.5 w-6 bg-error/20 rounded-full"></div>
+<div class="h-1.5 w-6 bg-error/20 rounded-full"></div>
+</div>
+</div>
+</div>
+<div class="space-y-6">
+<div class="bg-surface-container-low p-4 rounded-lg">
+<p class="text-xs font-bold tracking-widest uppercase text-on-surface-variant mb-2">Original Text</p>
+<p class="text-sm font-mono text-on-surface leading-relaxed">"The Service Provider shall indemnify, defend, and hold harmless the Client from and against any and all claims, damages, and losses without limitation or exclusion..."</p>
+</div>
+<div class="bg-primary-container p-4 rounded-lg border border-primary/10">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-sm" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<p class="text-xs font-bold tracking-widest uppercase text-on-primary-fixed">Mitigation Strategy</p>
+</div>
+<p class="text-sm text-white/90 leading-relaxed italic">"Limit indemnification to direct damages and insert an aggregate liability cap equal to 12 months of fees paid. Explicitly exclude indirect and consequential damages."</p>
+<button class="mt-4 text-xs font-bold text-tertiary-fixed-dim hover:underline uppercase tracking-widest">Apply Recommended Redline</button>
+</div>
+</div>
+</div>
+<!-- Clause Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-8 border-l-4 border-primary shadow-sm">
+<div class="flex justify-between items-start mb-6">
+<div>
+<span class="text-[10px] font-bold tracking-widest uppercase text-on-surface-variant">Section 8.4</span>
+<h4 class="text-lg font-bold">Intellectual Property Rights</h4>
+</div>
+<div class="flex flex-col items-end">
+<span class="text-[10px] font-bold tracking-widest uppercase text-primary mb-1">Architectural Deviation</span>
+<div class="flex gap-1">
+<div class="h-1.5 w-6 bg-primary rounded-full"></div>
+<div class="h-1.5 w-6 bg-primary/20 rounded-full"></div>
+<div class="h-1.5 w-6 bg-primary/20 rounded-full"></div>
+<div class="h-1.5 w-6 bg-primary/20 rounded-full"></div>
+<div class="h-1.5 w-6 bg-primary/20 rounded-full"></div>
+</div>
+</div>
+</div>
+<div class="space-y-6">
+<div class="bg-surface-container-low p-4 rounded-lg">
+<p class="text-xs font-bold tracking-widest uppercase text-on-surface-variant mb-2">Original Text</p>
+<p class="text-sm font-mono text-on-surface leading-relaxed">"All work product created under this Agreement shall be deemed 'work made for hire' and belong exclusively to the Client upon creation..."</p>
+</div>
+<div class="flex items-center gap-2 px-1">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">check_circle</span>
+<p class="text-xs text-on-surface-variant font-medium">Matches 92% of standard Enterprise IP clauses.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Benchmarking & Action Bar -->
+<div class="lg:col-span-4 space-y-8">
+<!-- Comparison Chart -->
+<div class="bg-surface-container-lowest rounded-xl p-8">
+<h3 class="label-md text-on-surface-variant font-semibold tracking-widest uppercase text-xs mb-8">Risk Benchmarking</h3>
+<div class="space-y-10">
+<div class="space-y-3">
+<div class="flex justify-between text-xs font-bold uppercase tracking-widest">
+<span>Current Document</span>
+<span>74</span>
+</div>
+<div class="w-full bg-surface-container-low h-3 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[74%] rounded-full"></div>
+</div>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between text-xs font-bold uppercase tracking-widest">
+<span>Industry Average</span>
+<span>42</span>
+</div>
+<div class="w-full bg-surface-container-low h-3 rounded-full overflow-hidden">
+<div class="bg-on-secondary-container h-full w-[42%] rounded-full opacity-60"></div>
+</div>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between text-xs font-bold uppercase tracking-widest">
+<span>Corporate Policy</span>
+<span>30</span>
+</div>
+<div class="w-full bg-surface-container-low h-3 rounded-full overflow-hidden">
+<div class="bg-tertiary-fixed-dim h-full w-[30%] rounded-full opacity-60"></div>
+</div>
+</div>
+</div>
+<div class="mt-10 p-4 bg-surface-container-low rounded-lg">
+<p class="text-xs text-on-surface-variant leading-relaxed">This document significantly exceeds our acceptable risk threshold of <strong>35</strong>. Strategic renegotiation is required.</p>
+</div>
+</div>
+<!-- Action Bar Card -->
+<div class="bg-primary p-8 rounded-xl text-white space-y-6">
+<h3 class="text-lg font-bold tracking-tight">AI Negotiator Actions</h3>
+<div class="space-y-3">
+<button class="w-full bg-white text-primary py-3 rounded-lg font-bold text-sm hover:opacity-90 transition-all">Apply All Redlines</button>
+<button class="w-full bg-white/10 text-white py-3 rounded-lg font-bold text-sm border border-white/20 hover:bg-white/20 transition-all">Draft Counter-Proposal</button>
+<button class="w-full bg-white/10 text-white py-3 rounded-lg font-bold text-sm border border-white/20 hover:bg-white/20 transition-all">Schedule Peer Review</button>
+</div>
+</div>
+<!-- Map / Location Placeholder for Context -->
+<div class="rounded-xl overflow-hidden grayscale relative h-40 group">
+<img alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="abstract architectural blueprint of a modern skyscraper with clean geometric lines and minimal aesthetic" data-location="Global Legal Nexus" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuI9pSCKjgqBPKq2XXs7INmAv8pnx5OWHpwf-FLx-79sAQOEszgneKWkhkXGw1F9OW0Cfj2MkJ_Q8Wl5wmH59xEhPX7qV-hnjrCw6CUmK-ACrgRpSC2V5fsFlaRUYQzeB2pnM_Pupook-fmvYV9BueOkbIbUEjFYMvGtFFSQOjQs9F_buTg1dXv9-kNJXlSWpyS_icJjf_UTp1raF0RedLOrCOi_NdZavv9kYXMOqK0nyckFAGIcAxs0WBp8BoZ_YFh38JyeuDwMk"/>
+<div class="absolute inset-0 bg-primary/20 flex items-center justify-center">
+<span class="bg-white/90 backdrop-blur-md px-4 py-1 text-[10px] font-bold tracking-widest uppercase text-primary rounded-full">Jurisdiction: Delaware, US</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 border-t border-slate-200/15 dark:border-slate-800/15 bg-slate-50 dark:bg-slate-950">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-8 max-w-7xl mx-auto space-y-4 md:space-y-0">
+<div class="text-lg font-bold tracking-tighter text-slate-900 dark:text-slate-50">LexAI</div>
+<div class="text-slate-500 dark:text-slate-400 font-sans text-xs tracking-widest uppercase font-semibold text-center md:text-left">
+                © 2024 LexAI Intelligence. Built for the Digital Architect.
+            </div>
+<div class="flex gap-8">
+<a class="font-sans text-xs tracking-widest uppercase font-semibold text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white underline-offset-4 hover:underline" href="#">Privacy Policy</a>
+<a class="font-sans text-xs tracking-widest uppercase font-semibold text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white underline-offset-4 hover:underline" href="#">Terms of Service</a>
+<a class="font-sans text-xs tracking-widest uppercase font-semibold text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white underline-offset-4 hover:underline" href="#">Contact</a>
+</div>
+</div>
+</footer>
+</body></html>
